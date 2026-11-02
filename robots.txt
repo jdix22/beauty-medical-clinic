@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jdix22.github.io/beauty-medical-clinic/sitemap.xml
