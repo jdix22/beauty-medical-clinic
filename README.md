@@ -7,6 +7,7 @@ Live site: https://beautymedical.ca/ (Cloudflare Worker "beauty-medical-clinic",
 GitHub Pages copy: https://jdix22.github.io/beauty-medical-clinic/ (its canonical points at beautymedical.ca)
 
 Redeploy after any change: `node _src/build.js`, then `wrangler deploy` from this folder.
+IndexNow key: `58994ea5125f1c575f3ee18dbaa497fc.txt` (all 22 pages sent 7 Nov 2026; re-send after big changes).
 Pushing to GitHub only updates the github.io copy.
 
 ## What changed from the old site
