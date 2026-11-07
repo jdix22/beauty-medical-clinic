@@ -7,7 +7,7 @@ const ROOT = path.join(__dirname, '..');
 // Live on beautymedical.ca (Cloudflare Worker). The GitHub Pages copy points its canonical here.
 const SITE = 'https://beautymedical.ca/';
 const NOINDEX = false;
-const VERSION = '2';
+const VERSION = '3';
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const img = (name, alt, w, h, o = {}) => `<img src="${o.p || ''}assets/img/${name}.webp" alt="${esc(alt)}" width="${w}" height="${h}"${o.eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${o.cls ? ` class="${o.cls}"` : ''}${o.sizes ? ` sizes="${o.sizes}"` : ''}${o.srcset ? ` srcset="${o.srcset}"` : ''}>`;
@@ -66,7 +66,8 @@ function header(p, current) {
   <div class="mega" id="mega" hidden data-mega>
     <div class="wrap mega-in">${treatmentsMenu(p)}<div class="mega-col mega-note"><p class="mono">Not sure where to start?</p><p>Tap the face map on the home page, or ask Victoria at a consultation.</p><a class="link" href="${p}services/">All treatments ${icon.arrow}</a></div></div>
   </div>
-  <div class="drawer" id="drawer" hidden data-drawer>
+</header>
+<div class="drawer" id="drawer" hidden data-drawer>
     <div class="drawer-in">
       <a href="${p}services/" class="drawer-big">All treatments</a>
       ${CATEGORIES.map(c => `<details><summary>${c.name}</summary><ul>${T.filter(t => t.cat === c.id).map(t => `<li><a href="${p}${t.slug}/">${t.short}</a></li>`).join('')}</ul></details>`).join('')}
@@ -76,8 +77,7 @@ function header(p, current) {
       <a href="${p}contact/" class="drawer-big">Contact</a>
       <a class="btn" href="${p}contact/#book">Book a consultation</a>
     </div>
-  </div>
-</header>`;
+</div>`;
 }
 
 function footer(p) {
