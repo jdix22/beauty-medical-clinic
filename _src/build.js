@@ -4,10 +4,10 @@ const path = require('path');
 const { FACTS: F, CATEGORIES, REVIEWS, ZONES, T, bySlug, REDIRECTS } = require('./content');
 
 const ROOT = path.join(__dirname, '..');
-// Change SITE and remove NOINDEX at launch on beautymedicalclinic.com
-const SITE = 'https://jdix22.github.io/beauty-medical-clinic/';
-const NOINDEX = true;
-const VERSION = '1';
+// Live on beautymedical.ca (Cloudflare Worker). The GitHub Pages copy points its canonical here.
+const SITE = 'https://beautymedical.ca/';
+const NOINDEX = false;
+const VERSION = '2';
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const img = (name, alt, w, h, o = {}) => `<img src="${o.p || ''}assets/img/${name}.webp" alt="${esc(alt)}" width="${w}" height="${h}"${o.eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${o.cls ? ` class="${o.cls}"` : ''}${o.sizes ? ` sizes="${o.sizes}"` : ''}${o.srcset ? ` srcset="${o.srcset}"` : ''}>`;
@@ -533,13 +533,15 @@ function privacy() {
 
 /* ───────── 404 + redirects ───────── */
 function notFound() {
-  const p = '/beauty-medical-clinic/';
+  const p = '/';
   const body = `<section class="p-hero nf"><div class="wrap"><p class="mono eyebrow">404</p><h1>That page has moved.</h1><p class="lede">The clinic’s website has a new look. Try one of these:</p><div class="hero-actions"><a class="btn" href="${p}services/">All treatments</a><a class="btn btn-ghost" href="${p}contact/">Contact</a><a class="btn btn-ghost" href="${p}">Home</a></div></div></section>`;
   // 404 is served at any depth, so links are root-absolute (update when moving to the real domain)
   return page({ file: '404.html', p, canonical: '', title: 'Page not found | Beauty Medical Clinic', desc: 'This page has moved. Browse treatments or contact Beauty Medical Clinic in Thornhill.', ld: [website], body });
 }
 
 function redirects() {
+  // Cloudflare reads _redirects for real 301s; the stub pages below cover GitHub Pages
+  fs.writeFileSync(path.join(ROOT, '_redirects'), Object.entries(REDIRECTS).flatMap(([from, to]) => [`/${from} /${to} 301`, `/${from}/ /${to} 301`]).join('\n') + '\n');
   for (const [from, to] of Object.entries(REDIRECTS)) {
     const html = `<!doctype html><html lang="en-CA"><head><meta charset="utf-8"><title>Moved | ${F.name}</title><meta name="robots" content="noindex"><link rel="canonical" href="${SITE}${to}"><meta http-equiv="refresh" content="0; url=../${to}"></head><body><p>This page has moved to <a href="../${to}">${SITE}${to}</a>.</p></body></html>\n`;
     const out = path.join(ROOT, from, 'index.html');
@@ -550,7 +552,7 @@ function redirects() {
 
 function sitemap() {
   const urls = ['', 'services/', 'about/', 'contact/', 'training/', 'privacy-policy/', ...T.map(t => t.slug + '/')];
-  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}${u}</loc><lastmod>2026-11-01</lastmod></url>`).join('\n')}\n</urlset>\n`);
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}${u}</loc><lastmod>2026-11-07</lastmod></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}sitemap.xml\n`);
 }
 

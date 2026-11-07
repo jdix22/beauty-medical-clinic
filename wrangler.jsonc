@@ -1,0 +1,16 @@
+{
+  "name": "beauty-medical-clinic",
+  "account_id": "76079c3515680b8cf8ee0902bb238ddd",
+  "compatibility_date": "2026-10-01",
+  "main": "worker.js",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "beautymedical.ca", "custom_domain": true },
+    { "pattern": "www.beautymedical.ca", "custom_domain": true }
+  ]
+}
