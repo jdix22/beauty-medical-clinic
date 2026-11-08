@@ -55,12 +55,12 @@ not carried over: "absolutely safe, no risk, no side effects" (Cinderella), "FDA
 
 ## Still to do
 
-1. **beautymedicalclinic.com** (her old domain, DNS at her cPanel host privatesystems.net):
-   once the old web person gives access, forward it to https://beautymedical.ca/ so old Google
-   results and links land on the new site. Leave its mail (MX) records alone: her email
-   info@beautymedicalclinic.com lives on that hosting account, so the hosting must not be cancelled.
-   Easiest: add beautymedicalclinic.com to Cloudflare as a redirect-only zone *after* copying
-   every mail record across, or ask the host to set a 301 redirect to beautymedical.ca.
+1. **beautymedicalclinic.com** (her old domain, DNS at her cPanel host privatesystems.net, no access
+   given): forwarded by the GitHub Pages site jdix22/beautymedicalclinic-redirect (folder
+   `../beautymedicalclinic-redirect`, rebuilt by `_src/redirect-site.js`), one page per old address.
+   Her host changes DNS: MX → mail.beautymedicalclinic.com FIRST (her email lives on that server,
+   so the hosting must not be cancelled), @ A → 185.199.108-111.153, delete @ AAAA, www CNAME →
+   jdix22.github.io. Once DNS points there, turn on "Enforce HTTPS" in that repo's Pages settings.
 2. Google Search Console: add beautymedical.ca (DNS verification in Cloudflare) and submit
    `https://beautymedical.ca/sitemap.xml`.
 3. Google Business Profile: change the website link to https://beautymedical.ca/, and keep the
