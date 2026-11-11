@@ -46,6 +46,22 @@ These were missing or unclear on the old site, so the new site avoids them or us
 10. **Social accounts.** None were linked on the old site. Add Instagram/Facebook if she has them.
 11. **Google rating** shows "Excellent · 40 reviews" (from the old site's review widget, Nov 2026).
 
+### Design refresh (11 Nov 2026)
+
+Victoria asked for a more "beautiful" look than competing clinics (reviewed: Toula, Victoria Park
+Medispa, Canada MedLaser, SFP Medispa). Changes: Cormorant + Jost type, ivory/teal/champagne-gold
+palette, editorial split hero, philosophy section, face map in its own section, arch-framed photos,
+photo-backed booking band. All features and wording kept.
+
+Mood photos from Unsplash (free licence, commercial use, no credit needed): `serum-dropper-skin`,
+`clinical-skin-care-gloves`, `facial-mask-treatment` (Salt & Silk card), `handheld-device-facial`
+(Forma card), `soft-focus-skin-closeup` (booking band). They are illustrative, not clinic clients.
+Biggest remaining upgrade: a professional portrait of Victoria (the current one is a close selfie)
+and a few photos of the treatment room.
+
+Business-card QR codes: `../beauty-medical-clinic-print/` (PNG, SVG, and a labelled PNG). They point
+to https://beautymedical.ca.
+
 ### Wording that was softened on purpose
 
 Health advertising should avoid absolute or unproven claims, so these old-site phrases were

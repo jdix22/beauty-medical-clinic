@@ -7,7 +7,7 @@ const ROOT = path.join(__dirname, '..');
 // Live on beautymedical.ca (Cloudflare Worker). The GitHub Pages copy points its canonical here.
 const SITE = 'https://beautymedical.ca/';
 const NOINDEX = false;
-const VERSION = '3';
+const VERSION = '4';
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const img = (name, alt, w, h, o = {}) => `<img src="${o.p || ''}assets/img/${name}.webp" alt="${esc(alt)}" width="${w}" height="${h}"${o.eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${o.cls ? ` class="${o.cls}"` : ''}${o.sizes ? ` sizes="${o.sizes}"` : ''}${o.srcset ? ` srcset="${o.srcset}"` : ''}>`;
@@ -132,7 +132,7 @@ function page({ file, p, title, desc, canonical, ogImg = 'assets/og.png', ogAlt 
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}${canonical}">
-<meta name="theme-color" content="#F4EEE6">
+<meta name="theme-color" content="#F7F2EB">
 ${NOINDEX ? '<meta name="robots" content="noindex">\n' : ''}<meta property="og:type" content="website">
 <meta property="og:site_name" content="${F.name}">
 <meta property="og:title" content="${esc(title)}">
@@ -148,7 +148,7 @@ ${NOINDEX ? '<meta name="robots" content="noindex">\n' : ''}<meta property="og:t
 <link rel="apple-touch-icon" href="${p}apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..600;1,300..600&family=Jost:wght@300..600&display=swap">
 <link rel="stylesheet" href="${p}assets/site.css?v=${VERSION}">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': ld })}</script>
 </head>
@@ -215,7 +215,7 @@ function home() {
 
   const body = `
 <section class="hero">
-  <div class="wrap hero-grid">
+  <div class="hero-grid">
     <div class="hero-copy">
       <p class="mono eyebrow">Thornhill · Bathurst &amp; Steeles</p>
       <h1><span class="h1-brand">Beauty Medical Clinic</span> <span class="h1-main">Non-surgical anti-aging, <em>where art meets science.</em></span></h1>
@@ -227,21 +227,44 @@ function home() {
         <li><b class="stars" aria-label="Rated Excellent on Google">${icon.star.repeat(5)}</b><span>Rated “Excellent” · ${F.googleCount} Google reviews</span></li>
       </ul>
     </div>
-    <div class="facemap" data-facemap>
-      <div class="fm-stage">
-        <picture>${img('face-map-consultation', 'A woman’s face framed by an injector’s gloved hands, marked with the facial zones the clinic treats', 1340, 1200, { eager: true, srcset: 'assets/img/face-map-consultation-720.webp 720w, assets/img/face-map-consultation.webp 1340w', sizes: '(max-width: 900px) 100vw, 50vw' })}</picture>
-        <svg class="fm-grid" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="21" x2="100" y2="21"/><line x1="0" y1="40" x2="100" y2="40"/><line x1="0" y1="59" x2="100" y2="59"/><line x1="0" y1="72" x2="100" y2="72"/><line x1="34" y1="0" x2="34" y2="100"/></svg>
-        ${zoneBtns}
-        <p class="fm-hint mono">Tap a point · see what treats it</p>
-      </div>
-      <div class="fm-panel" aria-live="polite">${zonePanels}</div>
-      <div class="fm-chips" role="group" aria-label="Choose an area">${chips}</div>
+    <div class="hero-media">
+      ${pic('serum-dropper-skin', 'A woman with her eyes closed letting a drop of golden serum fall onto her cheek', { eager: true, sizes: '(max-width: 900px) 100vw, 50vw' })}
+      <a class="hero-card" href="about/">${pic('victoria-adamov-rn', 'Victoria Adamov, RN', { sizes: '64px' })}<span><b>Victoria Adamov, RN</b>Every treatment, performed by Victoria herself</span></a>
     </div>
   </div>
 </section>
 
 <section class="strip" aria-label="What we treat">
-  <div class="marquee"><div class="marquee-in">${[...T, ...T].map(t => `<a href="${t.slug}/">${t.short}</a>`).join('<span aria-hidden="true">✦</span>')}</div></div>
+  <div class="marquee"><div class="marquee-in">${[...T, ...T].map(t => `<a href="${t.slug}/">${t.short}</a>`).join('<span aria-hidden="true">◆</span>')}</div></div>
+</section>
+
+<section class="section intro">
+  <div class="wrap intro-grid">
+    <div class="intro-copy">
+      <p class="mono eyebrow">Our philosophy</p>
+      <p class="intro-big">Thirty years of medicine and an artist’s eye, for results that <em>still look like you.</em></p>
+      <p class="intro-small">Victoria’s reputation rests on natural, youthful results built on anatomy, science and an artist’s eye. Clients say she would rather under-treat than over-treat, and every plan begins with a pressure-free conversation.</p>
+      <a class="link" href="about/">Meet Victoria ${icon.arrow}</a>
+    </div>
+    <figure class="intro-photo">${pic('clinical-skin-care-gloves', 'A relaxed client lying back as a gloved practitioner treats her cheek with a fine instrument', { sizes: '(max-width: 900px) 90vw, 40vw' })}</figure>
+  </div>
+</section>
+
+<section class="section fm-sec" id="face-map">
+  <div class="wrap fm-sec-grid facemap" data-facemap>
+    <div class="fm-copy">
+      <p class="mono eyebrow">The face map</p>
+      <h2>Find your treatment, <em>area by area.</em></h2>
+      <p class="fm-intro">Tap a point on the face, or choose an area below, to see what Victoria uses to treat it.</p>
+      <div class="fm-panel" aria-live="polite">${zonePanels}</div>
+      <div class="fm-chips" role="group" aria-label="Choose an area">${chips}</div>
+    </div>
+    <div class="fm-stage">
+      <picture>${img('face-map-consultation', 'A woman’s face framed by an injector’s gloved hands, marked with the facial zones the clinic treats', 1340, 1200, { srcset: 'assets/img/face-map-consultation-720.webp 720w, assets/img/face-map-consultation.webp 1340w', sizes: '(max-width: 900px) 100vw, 50vw' })}</picture>
+      ${zoneBtns}
+      <p class="fm-hint mono">Tap a point · see what treats it</p>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="treatments">
@@ -552,7 +575,7 @@ function redirects() {
 
 function sitemap() {
   const urls = ['', 'services/', 'about/', 'contact/', 'training/', 'privacy-policy/', ...T.map(t => t.slug + '/')];
-  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}${u}</loc><lastmod>2026-11-07</lastmod></url>`).join('\n')}\n</urlset>\n`);
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}${u}</loc><lastmod>2026-11-11</lastmod></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}sitemap.xml\n`);
 }
 

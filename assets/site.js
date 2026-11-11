@@ -84,7 +84,7 @@
   }
 
   // Reveal on scroll
-  const rv = $$('.sec-head, .tcard, .sig, .res, .rev, .meet-photo, .meet-copy, .vlist li, .t-sec, .quote, .trow, .train, .visit-photo');
+  const rv = $$('.sec-head, .intro-copy, .intro-photo, .fm-copy, .tcard, .sig, .res, .rev, .meet-photo, .meet-copy, .vlist li, .t-sec, .quote, .trow, .train, .visit-photo');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
     rv.forEach(n => { if (n.getBoundingClientRect().top > innerHeight) { n.classList.add('rv'); io.observe(n); } });
