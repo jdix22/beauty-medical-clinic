@@ -229,7 +229,7 @@ function home() {
     </div>
     <div class="hero-media">
       ${pic('serum-dropper-skin', 'A woman with her eyes closed letting a drop of golden serum fall onto her cheek', { eager: true, sizes: '(max-width: 900px) 100vw, 50vw' })}
-      <a class="hero-card" href="about/">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, RN', { sizes: '64px' })}<span><b>Rebecca Victoria Adam, RN</b>Every treatment, performed by Rebecca herself</span></a>
+      <a class="hero-card" href="about/">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, RN, Certified Aesthetic Injector', { sizes: '64px' })}<span><b>Rebecca Victoria Adam, RN</b><em class="hc-t">Certified Aesthetic Injector</em>Every treatment, performed by Rebecca herself</span></a>
     </div>
   </div>
 </section>
@@ -284,7 +284,7 @@ function home() {
 
 <section class="section meet">
   <div class="wrap meet-grid">
-    <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, Registered Nurse and founder of Beauty Medical Clinic, in red-framed glasses and pearls, resting her chin on her hand', { sizes: '(max-width: 800px) 90vw, 40vw' })}<figcaption class="mono">Rebecca Victoria Adam, RN · Founder</figcaption></figure>
+    <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, Registered Nurse and founder of Beauty Medical Clinic, in red-framed glasses and pearls, resting her chin on her hand', { sizes: '(max-width: 800px) 90vw, 40vw' })}<figcaption class="mono">Rebecca Victoria Adam, RN, Certified Aesthetic Injector · Founder</figcaption></figure>
     <div class="meet-copy">
       <p class="mono eyebrow">Meet your injector</p>
       <h2>A nurse first. An artist always.</h2>
@@ -382,7 +382,7 @@ function treatment(t, idx) {
     ${t.gallery.length ? `<section id="results" class="t-sec"><h2>${galH}</h2><div class="gal">${t.gallery.map(g => `<figure>${pic(g[0], g[1], { p, sizes: '(max-width: 700px) 90vw, 360px' })}<figcaption class="mono">${g[2]}</figcaption></figure>`).join('')}</div>${isRes ? '<p class="small muted">Beauty Medical Clinic clients. Individual results vary.</p>' : ''}</section>` : ''}
     ${t.quotes.length ? `<section class="t-quotes">${t.quotes.map(quoteBlock).join('')}</section>` : ''}
     ${t.faq.length ? `<section id="faq" class="t-sec"><h2>${t.short} FAQ</h2><div class="faq">${t.faq.map(([q, a]) => `<details><summary><h3>${q}</h3></summary><p>${a}</p></details>`).join('')}</div></section>` : ''}
-    <p class="note small">This page is general information, not medical advice. Your suitability for any treatment is confirmed at a consultation with Rebecca Victoria Adam, RN.</p>
+    <p class="note small">This page is general information, not medical advice. Your suitability for any treatment is confirmed at a consultation with Rebecca Victoria Adam, RN, Certified Aesthetic Injector.</p>
   </article>
 </div>
 
@@ -426,10 +426,10 @@ function about() {
 <section class="p-hero about-hero"><div class="wrap about-grid">
   <div>
     <nav class="crumbs mono" aria-label="Breadcrumb"><a href="${p}">Home</a> / <span>About</span></nav>
-    <h1>Meet Rebecca Victoria Adam, RN</h1>
+    <h1>Meet Rebecca Victoria Adam, RN, <span class="h1-title">Certified Aesthetic Injector</span></h1>
     <p class="lede">Registered Nurse, Certified Advanced Cosmetic Injector, and the founder of Beauty Medical Clinic in Thornhill. More than 30 years in medicine; more than a decade teaching doctors and nurses the techniques she uses on her own clients.</p>
   </div>
-  <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Portrait of Rebecca Victoria Adam, RN, founder of Beauty Medical Clinic, in red-framed glasses and a pearl necklace', { p, eager: true, sizes: '(max-width: 800px) 90vw, 40vw' })}</figure>
+  <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Portrait of Rebecca Victoria Adam, RN, Certified Aesthetic Injector, founder of Beauty Medical Clinic, in red-framed glasses and a pearl necklace', { p, eager: true, sizes: '(max-width: 800px) 90vw, 40vw' })}</figure>
 </div></section>
 
 <section class="section"><div class="wrap prose-grid">
@@ -483,7 +483,7 @@ function training() {
 <section class="p-hero"><div class="wrap">
   <nav class="crumbs mono" aria-label="Breadcrumb"><a href="${p}">Home</a> / <span>Training</span></nav>
   <h1>Hands-on aesthetics training for doctors and nurses</h1>
-  <p class="lede">Rebecca Victoria Adam, RN has taught medical professionals for more than ten years: hundreds of physicians and registered nurses from Australia, Europe and North America have learned her techniques.</p>
+  <p class="lede">Rebecca Victoria Adam, RN, Certified Aesthetic Injector, has taught medical professionals for more than ten years: hundreds of physicians and registered nurses from Australia, Europe and North America have learned her techniques.</p>
 </div></section>
 <section class="section"><div class="wrap train-grid">
   ${[['Botox & Dysport', 'Injection technique for the upper face: muscle anatomy, injection points, dosing and avoiding complications such as brow or lid ptosis.'], ['Dermal fillers', 'Hyaluronic acid filler placement for lips, cheeks, folds, chin and jawline, with an emphasis on natural, anatomy-led results.'], ['Sclerotherapy', 'Treating spider and reticular veins: patient selection, technique, compression and aftercare.']].map(([h, p2], i) => `<div class="train"><span class="mono">0${i + 1}</span><h2>${h}</h2><p>${p2}</p></div>`).join('')}

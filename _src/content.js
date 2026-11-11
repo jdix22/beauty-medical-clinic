@@ -70,7 +70,7 @@ T.push({
   name: 'Botox & Dysport', short: 'Botox & Dysport',
   title: 'Botox & Dysport in Thornhill | Beauty Medical Clinic',
   desc: 'Botox and Dysport for frown lines, forehead lines and crow’s feet in Thornhill. About 10 minutes, no downtime, by an RN injector. Call 416-728-5697.',
-  img: 'botox-dysport-injection', imgAlt: 'A gloved injector giving a fine-needle injection near a woman’s brow',
+  img: 'botox-frown-line-injection', imgAlt: 'A gloved injector placing a fine-needle injection between a relaxed woman’s brows to soften frown lines',
   card: 'Softens frown lines, forehead lines and crow’s feet. About 10 minutes, no downtime.',
   lede: 'Botox and Dysport relax the small muscles that fold the skin into expression lines. The appointment takes about ten minutes, you can go straight back to your day, and the full effect shows at around two weeks.',
   facts: [['Treatment time', 'About 10 minutes'], ['Downtime', 'None'], ['First results', '2–4 days'], ['Full effect', '10–14 days'], ['Typically lasts', '3–5 months']],
@@ -191,7 +191,7 @@ T.push({
       <p>Like Cinderella’s evening at the ball, the effect wears off after the night is over. Sterile saline is injected along the lip line, into the cheeks or other parts of the face, the change is visible straight away, and it fades within about eight to twelve hours.</p>
       <p>The trend started in Europe, and Beauty Medical Clinic was among the first clinics in the Toronto area to introduce Cinderella Lips and Cinderella Facelifts.</p>` },
     { h: 'Who it is for', html: `
-      <blockquote class="pull"><p>“Many women tell me they’ve thought about lip or cheek fillers but were never sure whether a fuller pout or more defined features would be right for them. This lets them try it first, see how friends and family react, and grow comfortable with the change.”</p><cite>Rebecca Victoria Adam, RN</cite></blockquote>
+      <blockquote class="pull"><p>“Many women tell me they’ve thought about lip or cheek fillers but were never sure whether a fuller pout or more defined features would be right for them. This lets them try it first, see how friends and family react, and grow comfortable with the change.”</p><cite>Rebecca Victoria Adam, RN, Certified Aesthetic Injector</cite></blockquote>
       <ul class="ticks"><li>Weddings, galas, holiday parties and New Year’s</li><li>Photo sessions and special occasions</li><li>Anyone curious about filler who wants to see the look first</li></ul>` },
     { h: 'Inexpensive, but still a medical treatment', html: `<p>It is quick and simple, but it is still an injection. Rebecca’s advice: choose someone experienced and properly qualified, with a good eye for facial anatomy, who will tell you when enough is enough. The result should look natural and enhance your features rather than change them.</p>` }
   ],
