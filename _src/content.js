@@ -59,7 +59,7 @@ const ZONES = [
   { id: 'jaw', label: 'Jawline', x: 20.9, y: 66.7, concern: 'Softening contour, jowls', t: ['dermal-fillers', 'radiofrequency-skin-tightening', 'salt-and-silk-facial'] },
   { id: 'chin', label: 'Chin', x: 36.6, y: 69.7, concern: 'Shape and projection', t: ['dermal-fillers'] },
   { id: 'neck', label: 'Neck', x: 28.4, y: 84, concern: 'Crepey, dehydrated skin', t: ['skin-boosters', 'prp-rejuvenation', 'radiofrequency-skin-tightening'] },
-  { id: 'skin', label: 'Overall skin', x: 54, y: 30, concern: 'Pores, scars, pigment, dullness', t: ['microneedling', 'mesotherapy', 'lumecca', 'organic-peel'] }
+  { id: 'skin', label: 'Overall skin', x: 54, y: 30, concern: 'Pores, scars, pigment, dullness', t: ['microneedling', 'mesotherapy', 'organic-peel'] }
 ];
 
 const T = [];
@@ -284,7 +284,7 @@ T.push({
   name: 'PRP Rejuvenation', short: 'PRP rejuvenation',
   title: 'PRP (Platelet-Rich Plasma) Skin & Hair Treatment, Thornhill',
   desc: 'PRP rejuvenation in Thornhill uses your own platelets for skin tone, dark circles, the neck and hair loss. Often paired with microneedling. Call 416-728-5697.',
-  img: 'hair-prp-scalp-treatment', imgAlt: 'A gloved practitioner injecting platelet-rich plasma with a fine needle',
+  img: 'prp-golden-plasma-facial-injection', imgAlt: 'A gloved practitioner injecting golden platelet-rich plasma beside the eye of a relaxed client',
   card: 'Your own platelets for tone, texture, dark circles, the neck and hair.',
   lede: 'Platelet-rich plasma (PRP) uses your own blood to help your skin repair itself. A small sample is spun to concentrate the platelets, which carry growth factors, and that plasma is placed back into the skin or scalp to stimulate collagen and healthy new cells.',
   facts: [['Uses', 'Skin, under-eyes, neck, hair'], ['First changes', 'About 4 weeks'], ['Best results', '6–12 weeks'], ['Can last', '12+ months']],
@@ -356,7 +356,7 @@ T.push({
   faq: [['How many herbal peels do I need?', 'You will see a difference after one, but the best result comes from one peel every two weeks for two months.']],
   gallery: [['organic-peel-before-after', 'Before and after an organic herbal peel, showing clearer, more even skin', 'Organic peel · before / after']],
   quotes: [],
-  related: ['microneedling', 'lumecca', 'mesotherapy']
+  related: ['microneedling', 'salt-and-silk-facial', 'mesotherapy']
 });
 
 T.push({
@@ -375,31 +375,6 @@ T.push({
   gallery: [['salt-and-silk-facial-before-after', 'Before and after the Salt and Silk Facial showing a lifted, more defined jawline', 'Salt & Silk facial · before / after']],
   quotes: [],
   related: ['radiofrequency-skin-tightening', 'endospheres-therapy', 'cinderella-facelift']
-});
-
-T.push({
-  slug: 'lumecca', cat: 'skin',
-  name: 'Lumecca IPL Photofacial', short: 'Lumecca photofacial',
-  title: 'Lumecca IPL Photofacial for Sun Spots & Redness, Thornhill',
-  desc: 'Lumecca IPL photofacial in Thornhill clears sun spots, age spots, redness and small veins in 1–3 sessions. Face, neck, chest, hands, arms and legs.',
-  img: 'lumecca-photofacial-clear-skin', imgAlt: 'A woman with clear, even-toned skin touching the corner of her eye',
-  card: 'Intense pulsed light for sun spots, age spots, redness and tiny veins in 1–3 sessions.',
-  lede: 'Lumecca by InMode is an intense pulsed light (IPL) photofacial that targets brown pigment and small red vessels. Most clients see brighter, clearer skin after the first session, and complete photorejuvenation often takes just one to three.',
-  facts: [['Sessions', 'Usually 1–3'], ['Visible results', '1–2 weeks'], ['Redness', 'Usually gone within an hour'], ['Areas', 'Face, neck, chest, hands, arms, legs']],
-  sections: [
-    { h: 'What Lumecca treats', html: `<ul class="ticks cols"><li>Age spots (brown and red pigment)</li><li>Sun damage</li><li>Freckles</li><li>Rosacea redness</li><li>Spider veins and small vessels</li><li>Uneven texture</li></ul>
-      <p>Lumecca puts about 40% of its energy into the 500–600 nm range, the sweet spot for both pigment and blood, compared with 10–15% for standard IPL. That is why it often needs one or two treatments where older devices needed four to six. A sapphire cooling tip keeps it comfortable.</p>` },
-    { h: 'During and after', html: `<p>You will see a bright flash and feel something like a light elastic snap. Redness and warmth afterwards are normal and usually fade within an hour. Over the next 24–48 hours brown spots darken, then flake off during the following week, leaving a more even tone. Treated small veins may blanch and disappear, or change colour and fade over a few days.</p>` },
-    { h: 'Before your session', html: `<p>Avoid direct, heavy sun and tanning for one month before treatment, and protect your skin from the sun afterwards while it is more sensitive.</p>` }
-  ],
-  faq: [
-    ['How many Lumecca sessions will I need?', 'Most people need one to three. Improvement shows after the first; more sessions give a better final result, depending on your skin type and how much damage there is.'],
-    ['When will I see results?', 'Sun damage and tone improve within days of the first session, with the most visible change at one to two weeks. Vein results show within about two weeks.'],
-    ['Are there side effects?', 'Most people have none beyond brief redness. Skin can be more sun-sensitive just after treatment, so avoid direct sun and tanning.']
-  ],
-  gallery: [['lumecca-pigmentation-before-after', 'Split face showing sun-damaged skin with brown spots on one side and clear skin on the other', 'Pigmentation · before / after']],
-  quotes: [['I would definitely recommend Lumecca. I like how it brightened my face and gave me a beautiful glow. I can really see a difference.', 'Lumecca client']],
-  related: ['radiofrequency-skin-tightening', 'organic-peel', 'sclerotherapy']
 });
 
 T.push({
@@ -430,7 +405,7 @@ T.push({
     ['forma-before-after-4', 'Before and after Forma skin tightening on the face', 'Forma · before / after']
   ],
   quotes: [['My Forma treatments improved my overall complexion without any pain or downtime. It is a great alternative to expensive procedures. I love the way my new face looks.', 'Jane'], ['Relax and become beautiful. I could see the result after the 2nd treatment.', 'Rena']],
-  related: ['salt-and-silk-facial', 'lumecca', 'body-fx']
+  related: ['salt-and-silk-facial', 'skin-boosters', 'body-fx']
 });
 
 /* ───────────── BODY ───────────── */
@@ -456,12 +431,12 @@ T.push({
     ['How many sclerotherapy treatments will I need?', 'Typically three to five; milder cases often need two or three. More or larger veins need more sessions.'],
     ['Does sclerotherapy hurt?', 'Each injection gives a small sting that lasts a few seconds. Most people don’t need anesthesia and find it much easier than they expected.'],
     ['Can it treat large varicose veins?', 'Sclerotherapy is for small and medium veins near the surface. Large varicose veins need much more solution and a stronger formula, and are better assessed separately.'],
-    ['Can veins on the face or hands be treated?', 'No. Sclerotherapy should never be used on the hands, and facial veins respond better to light-based treatment such as Lumecca.'],
+    ['Can veins on the face or hands be treated?', 'No. Sclerotherapy should never be used on the hands, and it is not the right treatment for veins on the face.'],
     ['What do I need to do after?', 'Wear compression stockings (24 hours the first day, then for a week), walk as normal, and skip intense sport for 5–7 days.']
   ],
   gallery: [['compression-stockings', 'A range of compression stockings: knee socks, thigh-highs and pantyhose', 'Compression stockings, fitted in-clinic']],
   quotes: [['I had my spider veins removed by Victoria. She did an amazing job! She is very skilled and attentive.', 'Stella I.'], ['I can’t wait to wear shorts in the summer now that Victoria has cleared all my spider veins.', 'Kathryn K.']],
-  related: ['lumecca', 'body-fx', 'endospheres-therapy']
+  related: ['body-fx', 'endospheres-therapy', 'radiofrequency-skin-tightening']
 });
 
 T.push({
@@ -576,8 +551,9 @@ const REDIRECTS = {
   'radio-frequency-skin-tightening': 'radiofrequency-skin-tightening/',
   'bodyfx-faq': 'body-fx/#faq',
   'bodyfx': 'body-fx/',
-  'lumeca': 'lumecca/',
-  'lumecca-faq': 'lumecca/#faq',
+  'lumeca': 'services/#skin',
+  'lumecca': 'services/#skin',
+  'lumecca-faq': 'services/#skin',
   'micro-needling-pre-and-post-treatment-instructions': 'microneedling/#aftercare',
   'herbal-peel-pre-and-post-treatment-instructions': 'organic-peel/#aftercare',
   'hair-growth-revolutionary-treatment': 'hair-loss-and-thinning-treatment/',

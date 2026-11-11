@@ -269,7 +269,7 @@ function home() {
 
 <section class="section" id="treatments">
   <div class="wrap">
-    <div class="sec-head"><p class="mono eyebrow">Treatments</p><h2>Sixteen treatments, one trusted pair of hands.</h2><p>From a ten-minute Botox appointment to a six-week skin-tightening course, each plan is built around your face, your goals and what will look natural on you.</p></div>
+    <div class="sec-head"><p class="mono eyebrow">Treatments</p><h2>Fifteen treatments, one trusted pair of hands.</h2><p>From a ten-minute Botox appointment to a six-week skin-tightening course, each plan is built around your face, your goals and what will look natural on you.</p></div>
     <div class="cat-tabs" role="tablist" aria-label="Treatment categories"><button role="tab" aria-selected="true" data-cat="all">All</button>${CATEGORIES.map(c => `<button role="tab" aria-selected="false" data-cat="${c.id}">${c.name}</button>`).join('')}</div>
     <div class="tgrid" data-tgrid>${T.map((t, i) => card(t, p, i + 1).replace('<a class="tcard"', `<a class="tcard" data-c="${t.cat}"`)).join('')}</div>
   </div>
@@ -406,7 +406,7 @@ function services() {
 <section class="p-hero"><div class="wrap">
   <nav class="crumbs mono" aria-label="Breadcrumb"><a href="${p}">Home</a> / <span>Treatments</span></nav>
   <h1>Non-surgical treatments in Thornhill</h1>
-  <p class="lede">Sixteen treatments to tackle the signs of aging on several levels: lines and volume, skin quality, the body and the hair. Not sure which you need? That is exactly what a consultation is for.</p>
+  <p class="lede">Fifteen treatments to tackle the signs of aging on several levels: lines and volume, skin quality, the body and the hair. Not sure which you need? That is exactly what a consultation is for.</p>
 </div></section>
 ${CATEGORIES.map(c => `<section class="section cat-sec" id="${c.id}"><div class="wrap"><div class="sec-head row"><h2>${c.name}</h2><p>${c.blurb}</p></div>
 <div class="tlist">${T.filter(t => t.cat === c.id).map(t => `<a class="trow" href="${p}${t.slug}/"><span class="trow-img">${pic(t.img, t.imgAlt, { p, sizes: '160px' })}</span><span class="trow-main"><span class="trow-h">${t.name}</span><span class="trow-p">${t.card}</span></span><span class="trow-facts mono">${t.facts.slice(0, 2).map(f => `<span>${f[0]}: ${f[1]}</span>`).join('')}</span><span class="trow-go">${icon.arrow}</span></a>`).join('')}</div></div></section>`).join('')}
@@ -414,7 +414,7 @@ ${ctaBand(p)}`;
   return page({
     file: 'services/index.html', p, canonical: 'services/', current: 'services',
     title: 'Treatments | Beauty Medical Clinic, Thornhill',
-    desc: 'All treatments at Beauty Medical Clinic in Thornhill: Botox, fillers, lips, microneedling, PRP, peels, Lumecca, Forma, BodyFX, Endospheres, sclerotherapy and hair.',
+    desc: 'All treatments at Beauty Medical Clinic in Thornhill: Botox, fillers, lips, microneedling, PRP, peels, Forma, BodyFX, Endospheres, sclerotherapy and hair.',
     ld: [{ ...biz }, crumbs([['Home', ''], ['Treatments', 'services/']])], body
   });
 }
