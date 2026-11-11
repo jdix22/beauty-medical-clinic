@@ -52,7 +52,7 @@ function header(p, current) {
     ${logo(p)}
     <nav class="nav" aria-label="Main">
       <button class="nav-tr" type="button" aria-expanded="false" aria-controls="mega" data-mega-btn>Treatments <span aria-hidden="true">+</span></button>
-      <a href="${p}about/"${cur('about')}>About Victoria</a>
+      <a href="${p}about/"${cur('about')}>About Rebecca</a>
       <a href="${p}#results">Results</a>
       <a href="${p}training/"${cur('training')}>Training</a>
       <a href="${p}contact/"${cur('contact')}>Contact</a>
@@ -64,14 +64,14 @@ function header(p, current) {
     </div>
   </div>
   <div class="mega" id="mega" hidden data-mega>
-    <div class="wrap mega-in">${treatmentsMenu(p)}<div class="mega-col mega-note"><p class="mono">Not sure where to start?</p><p>Tap the face map on the home page, or ask Victoria at a consultation.</p><a class="link" href="${p}services/">All treatments ${icon.arrow}</a></div></div>
+    <div class="wrap mega-in">${treatmentsMenu(p)}<div class="mega-col mega-note"><p class="mono">Not sure where to start?</p><p>Tap the face map on the home page, or ask Rebecca at a consultation.</p><a class="link" href="${p}services/">All treatments ${icon.arrow}</a></div></div>
   </div>
 </header>
 <div class="drawer" id="drawer" hidden data-drawer>
     <div class="drawer-in">
       <a href="${p}services/" class="drawer-big">All treatments</a>
       ${CATEGORIES.map(c => `<details><summary>${c.name}</summary><ul>${T.filter(t => t.cat === c.id).map(t => `<li><a href="${p}${t.slug}/">${t.short}</a></li>`).join('')}</ul></details>`).join('')}
-      <a href="${p}about/" class="drawer-big">About Victoria</a>
+      <a href="${p}about/" class="drawer-big">About Rebecca</a>
       <a href="${p}#results" class="drawer-big">Results</a>
       <a href="${p}training/" class="drawer-big">Training</a>
       <a href="${p}contact/" class="drawer-big">Contact</a>
@@ -116,7 +116,7 @@ const biz = {
 };
 const person = {
   '@type': 'Person', '@id': SITE + '#victoria', name: F.owner, jobTitle: F.ownerTitle,
-  worksFor: { '@id': SITE + '#business' }, image: SITE + 'assets/img/victoria-adamov-rn.webp', url: SITE + 'about/',
+  worksFor: { '@id': SITE + '#business' }, image: SITE + 'assets/img/rebecca-victoria-adam-rn.webp', url: SITE + 'about/',
   knowsAbout: ['Botox and Dysport injections', 'Dermal fillers', 'Sclerotherapy', 'PRP', 'Mesotherapy', 'Medical aesthetics training']
 };
 const website = { '@type': 'WebSite', '@id': SITE + '#website', url: SITE, name: F.name, publisher: { '@id': SITE + '#business' }, inLanguage: 'en-CA' };
@@ -172,7 +172,7 @@ const card = (t, p, i) => `<a class="tcard" href="${p}${t.slug}/">
   <span class="tcard-img">${pic(t.img, t.imgAlt, { p, sizes: '(max-width: 700px) 90vw, 360px' })}</span>
   <span class="tcard-body"><span class="mono tcard-n">${String(i).padStart(2, '0')} · ${CATEGORIES.find(c => c.id === t.cat).name}</span><span class="tcard-h">${t.name}</span><span class="tcard-p">${t.card}</span><span class="tcard-go">Learn more ${icon.arrow}</span></span></a>`;
 
-const ctaBand = (p, h = 'Ready when you are.', sub = 'Every treatment starts with a conversation. Call, text or WhatsApp, or send a note and Victoria will be in touch.') => `<section class="cta-band"><div class="wrap cta-in">
+const ctaBand = (p, h = 'Ready when you are.', sub = 'Every treatment starts with a conversation. Call, text or WhatsApp, or send a note and Rebecca will be in touch.') => `<section class="cta-band"><div class="wrap cta-in">
   <div><p class="mono eyebrow">Book a consultation</p><h2>${h}</h2><p>${sub}</p></div>
   <div class="cta-actions"><a class="btn" href="${p}contact/#book">Request an appointment</a><a class="btn btn-ghost" href="${F.tel}">${icon.phone} ${F.phone}</a><a class="btn btn-ghost" href="${F.whatsapp}" rel="noopener" target="_blank">${icon.wa} WhatsApp</a></div>
 </div></section>`;
@@ -204,13 +204,13 @@ function home() {
   ];
   const resAlt = n => { for (const t of T) for (const g of t.gallery) if (g[0] === n) return g[1]; return 'Before and after treatment at Beauty Medical Clinic'; };
   const homeFaq = [
-    ['Who performs the treatments?', 'Victoria Adamov, a Registered Nurse and Certified Advanced Cosmetic Injector with more than 30 years in medicine. She also trains doctors and nurses in Botox, dermal fillers and sclerotherapy.'],
+    ['Who performs the treatments?', 'Rebecca Victoria Adam, a Registered Nurse and Certified Advanced Cosmetic Injector with more than 30 years in medicine. She also trains doctors and nurses in Botox, dermal fillers and sclerotherapy.'],
     ['Where is Beauty Medical Clinic?', 'In the Medical Arts building at 7131 Bathurst St., Unit 103, Thornhill, ON L4J 7Z1, near Steeles Ave and Bathurst St.'],
     ['How do I book?', 'Call or text 416-728-5697, message on WhatsApp, email info@beautymedicalclinic.com, or send the request form on the contact page.'],
     ['How long does Botox last?', 'Usually three to five months. Results start within a few days and peak at about two weeks.'],
-    ['Will I look “done”?', 'No. Victoria’s reputation rests on natural, youthful results. Clients often mention that she prefers to under-treat rather than over-treat.'],
+    ['Will I look “done”?', 'No. Rebecca’s reputation rests on natural, youthful results. Clients often mention that she prefers to under-treat rather than over-treat.'],
     ['What is the best age to start?', 'There is no upper limit, and treatments are for adults 18 and over. Starting a maintenance plan earlier makes results easier to keep later.'],
-    ['Do you treat men?', 'Yes. Victoria helps both women and men, and treatments like Endospheres, Botox and the hair-loss protocol are popular with men.']
+    ['Do you treat men?', 'Yes. Rebecca helps both women and men, and treatments like Endospheres, Botox and the hair-loss protocol are popular with men.']
   ];
 
   const body = `
@@ -219,7 +219,7 @@ function home() {
     <div class="hero-copy">
       <p class="mono eyebrow">Thornhill · Bathurst &amp; Steeles</p>
       <h1><span class="h1-brand">Beauty Medical Clinic</span> <span class="h1-main">Non-surgical anti-aging, <em>where art meets science.</em></span></h1>
-      <p class="lede">Botox, fillers, skin renewal, spider veins, body contouring and hair restoration, every treatment performed by Registered Nurse Victoria Adamov, who teaches these techniques to doctors and nurses.</p>
+      <p class="lede">Botox, fillers, skin renewal, spider veins, body contouring and hair restoration, every treatment performed by Registered Nurse Rebecca Victoria Adam, who teaches these techniques to doctors and nurses.</p>
       <div class="hero-actions"><a class="btn" href="contact/#book">Book a consultation</a><a class="btn btn-ghost" href="${F.tel}">${icon.phone} ${F.phone}</a></div>
       <ul class="hero-proof">
         <li><b>30<span class="pl">+</span></b><span>years in medicine</span></li>
@@ -229,7 +229,7 @@ function home() {
     </div>
     <div class="hero-media">
       ${pic('serum-dropper-skin', 'A woman with her eyes closed letting a drop of golden serum fall onto her cheek', { eager: true, sizes: '(max-width: 900px) 100vw, 50vw' })}
-      <a class="hero-card" href="about/">${pic('victoria-adamov-rn', 'Victoria Adamov, RN', { sizes: '64px' })}<span><b>Victoria Adamov, RN</b>Every treatment, performed by Victoria herself</span></a>
+      <a class="hero-card" href="about/">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, RN', { sizes: '64px' })}<span><b>Rebecca Victoria Adam, RN</b>Every treatment, performed by Rebecca herself</span></a>
     </div>
   </div>
 </section>
@@ -243,8 +243,8 @@ function home() {
     <div class="intro-copy">
       <p class="mono eyebrow">Our philosophy</p>
       <p class="intro-big">Thirty years of medicine and an artist’s eye, for results that <em>still look like you.</em></p>
-      <p class="intro-small">Victoria’s reputation rests on natural, youthful results built on anatomy, science and an artist’s eye. Clients say she would rather under-treat than over-treat, and every plan begins with a pressure-free conversation.</p>
-      <a class="link" href="about/">Meet Victoria ${icon.arrow}</a>
+      <p class="intro-small">Rebecca’s reputation rests on natural, youthful results built on anatomy, science and an artist’s eye. Clients say she would rather under-treat than over-treat, and every plan begins with a pressure-free conversation.</p>
+      <a class="link" href="about/">Meet Rebecca ${icon.arrow}</a>
     </div>
     <figure class="intro-photo">${pic('clinical-skin-care-gloves', 'A relaxed client lying back as a gloved practitioner treats her cheek with a fine instrument', { sizes: '(max-width: 900px) 90vw, 40vw' })}</figure>
   </div>
@@ -255,7 +255,7 @@ function home() {
     <div class="fm-copy">
       <p class="mono eyebrow">The face map</p>
       <h2>Find your treatment, <em>area by area.</em></h2>
-      <p class="fm-intro">Tap a point on the face, or choose an area below, to see what Victoria uses to treat it.</p>
+      <p class="fm-intro">Tap a point on the face, or choose an area below, to see what Rebecca uses to treat it.</p>
       <div class="fm-panel" aria-live="polite">${zonePanels}</div>
       <div class="fm-chips" role="group" aria-label="Choose an area">${chips}</div>
     </div>
@@ -284,14 +284,14 @@ function home() {
 
 <section class="section meet">
   <div class="wrap meet-grid">
-    <figure class="meet-photo">${pic('victoria-adamov-rn', 'Victoria Adamov, Registered Nurse and founder of Beauty Medical Clinic, smiling in dark-framed glasses', { sizes: '(max-width: 800px) 90vw, 40vw' })}<figcaption class="mono">Victoria Adamov, RN · Founder</figcaption></figure>
+    <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, Registered Nurse and founder of Beauty Medical Clinic, smiling in dark-framed glasses', { sizes: '(max-width: 800px) 90vw, 40vw' })}<figcaption class="mono">Rebecca Victoria Adam, RN · Founder</figcaption></figure>
     <div class="meet-copy">
       <p class="mono eyebrow">Meet your injector</p>
       <h2>A nurse first. An artist always.</h2>
-      <p>Victoria began her career as a Registered Nurse on a bone-marrow transplant unit at one of Israel’s leading hospitals, then worked as a wound-care nurse and educator for Johnson &amp; Johnson. In Canada she re-qualified as an RN and spent several years as a visiting nurse before moving into medical aesthetics, where she trained alongside leading dermatologists and plastic surgeons.</p>
+      <p>Rebecca began her career as a Registered Nurse on a bone-marrow transplant unit at one of Israel’s leading hospitals, then worked as a wound-care nurse and educator for Johnson &amp; Johnson. In Canada she re-qualified as an RN and spent several years as a visiting nurse before moving into medical aesthetics, where she trained alongside leading dermatologists and plastic surgeons.</p>
       <p>Today she is one of Canada’s sought-after aesthetics trainers. For more than ten years she has taught hands-on Botox, dermal filler and sclerotherapy technique to doctors and registered nurses, and hundreds of professionals from Australia, Europe and North America have learned from her.</p>
       <ul class="cred"><li><b>30<span class="pl">+</span> yrs</b><span>in medicine</span></li><li><b>10<span class="pl">+</span> yrs</b><span>training MDs &amp; RNs</span></li><li><b>100s</b><span>of professionals taught worldwide</span></li></ul>
-      <a class="link" href="about/">Victoria’s story and approach ${icon.arrow}</a>
+      <a class="link" href="about/">Rebecca’s story and approach ${icon.arrow}</a>
     </div>
   </div>
 </section>
@@ -313,7 +313,7 @@ function home() {
 
 <section class="section values">
   <div class="wrap values-grid">
-    <div><p class="mono eyebrow">The difference</p><h2>What makes Beauty Medical Clinic different.</h2><p>“The goal is to age as gracefully as possible. If you start investing early enough, we can help you delay the ageing process, and that’s something each of us deserves.”</p><p class="sig-name">Victoria Adamov</p></div>
+    <div><p class="mono eyebrow">The difference</p><h2>What makes Beauty Medical Clinic different.</h2><p>“The goal is to age as gracefully as possible. If you start investing early enough, we can help you delay the ageing process, and that’s something each of us deserves.”</p><p class="sig-name">Rebecca Victoria Adam</p></div>
     <ol class="vlist"><li><span class="mono">01</span>Relationships built on trust and honesty</li><li><span class="mono">02</span>Compassion and empathy</li><li><span class="mono">03</span>Medical professionalism</li><li><span class="mono">04</span>An individual approach for every face</li><li><span class="mono">05</span>A friendly, pressure-free atmosphere</li></ol>
   </div>
 </section>
@@ -330,7 +330,7 @@ ${visit(p)}
   return page({
     file: 'index.html', p, canonical: '',
     title: 'Beauty Medical Clinic | Botox, Fillers & Anti-Aging, Thornhill',
-    desc: 'Non-surgical anti-aging in Thornhill: Botox, fillers, microneedling, spider veins, BodyFX and hair loss treatment by RN injector Victoria Adamov. Book today.',
+    desc: 'Non-surgical anti-aging in Thornhill: Botox, fillers, microneedling, spider veins, BodyFX and hair loss treatment by RN injector Rebecca Victoria Adam. Book today.',
     ld: [biz, person, website, ...faqLd(homeFaq)], body, bodyClass: 'home'
   });
 }
@@ -382,12 +382,12 @@ function treatment(t, idx) {
     ${t.gallery.length ? `<section id="results" class="t-sec"><h2>${galH}</h2><div class="gal">${t.gallery.map(g => `<figure>${pic(g[0], g[1], { p, sizes: '(max-width: 700px) 90vw, 360px' })}<figcaption class="mono">${g[2]}</figcaption></figure>`).join('')}</div>${isRes ? '<p class="small muted">Beauty Medical Clinic clients. Individual results vary.</p>' : ''}</section>` : ''}
     ${t.quotes.length ? `<section class="t-quotes">${t.quotes.map(quoteBlock).join('')}</section>` : ''}
     ${t.faq.length ? `<section id="faq" class="t-sec"><h2>${t.short} FAQ</h2><div class="faq">${t.faq.map(([q, a]) => `<details><summary><h3>${q}</h3></summary><p>${a}</p></details>`).join('')}</div></section>` : ''}
-    <p class="note small">This page is general information, not medical advice. Your suitability for any treatment is confirmed at a consultation with Victoria Adamov, RN.</p>
+    <p class="note small">This page is general information, not medical advice. Your suitability for any treatment is confirmed at a consultation with Rebecca Victoria Adam, RN.</p>
   </article>
 </div>
 
 <section class="section related"><div class="wrap"><div class="sec-head"><p class="mono eyebrow">Often paired with</p><h2>Related treatments</h2></div><div class="tgrid three">${t.related.map(s => card(bySlug[s], p, T.indexOf(bySlug[s]) + 1)).join('')}</div></div></section>
-${ctaBand(p, `Talk to Victoria about ${t.short.toLowerCase()}.`)}
+${ctaBand(p, `Talk to Rebecca about ${t.short.toLowerCase()}.`)}
 `;
   const ld = [
     { '@type': 'Service', '@id': SITE + t.slug + '/#service', name: t.name, serviceType: t.name, description: t.lede, url: SITE + t.slug + '/', provider: { '@id': SITE + '#business' }, areaServed: [{ '@type': 'City', name: 'Thornhill' }, { '@type': 'City', name: 'Toronto' }], image: SITE + 'assets/img/' + t.img + '.webp' },
@@ -426,27 +426,27 @@ function about() {
 <section class="p-hero about-hero"><div class="wrap about-grid">
   <div>
     <nav class="crumbs mono" aria-label="Breadcrumb"><a href="${p}">Home</a> / <span>About</span></nav>
-    <h1>Meet Victoria Adamov, RN</h1>
+    <h1>Meet Rebecca Victoria Adam, RN</h1>
     <p class="lede">Registered Nurse, Certified Advanced Cosmetic Injector, and the founder of Beauty Medical Clinic in Thornhill. More than 30 years in medicine; more than a decade teaching doctors and nurses the techniques she uses on her own clients.</p>
   </div>
-  <figure class="meet-photo">${pic('victoria-adamov-rn', 'Portrait of Victoria Adamov, founder of Beauty Medical Clinic', { p, eager: true, sizes: '(max-width: 800px) 90vw, 40vw' })}</figure>
+  <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Portrait of Rebecca Victoria Adam, founder of Beauty Medical Clinic', { p, eager: true, sizes: '(max-width: 800px) 90vw, 40vw' })}</figure>
 </div></section>
 
 <section class="section"><div class="wrap prose-grid">
   <div class="prose">
     <h2>From transplant ward to treatment room</h2>
-    <p>Victoria started as a Registered Nurse in the bone-marrow transplantation department of one of Israel’s leading hospitals, then worked as a wound-care nurse and educator with Johnson &amp; Johnson. After moving to Canada she earned her Registered Nurse diploma here and cared for her community as a visiting nurse for several years.</p>
+    <p>Rebecca started as a Registered Nurse in the bone-marrow transplantation department of one of Israel’s leading hospitals, then worked as a wound-care nurse and educator with Johnson &amp; Johnson. After moving to Canada she earned her Registered Nurse diploma here and cared for her community as a visiting nurse for several years.</p>
     <p>She moved into medical aesthetics more than 17 years ago, training with some of the finest dermatologists and plastic surgeons, driven by a simple wish: to help women and men look and feel their best.</p>
     <h2>A teacher of teachers</h2>
     <p>Her technique earned her a reputation as one of Canada’s top medical aesthetics trainers. For over ten years she has taught hands-on Botox, dermal filler and sclerotherapy courses for medical doctors and registered nurses, and has trained hundreds of professionals from Australia, Europe and North America. <a href="${p}training/">About training</a>.</p>
     <h2>Anatomy, science and an artist’s eye</h2>
-    <p>Victoria keeps up with a fast-moving field, adopting new techniques and technology so clients get the best care and outcome. Her reputation rests on one thing: a natural, youthful look built on anatomy, science and artistic skill. Many clients notice a change after just one or two visits, depending on the treatment.</p>
+    <p>Rebecca keeps up with a fast-moving field, adopting new techniques and technology so clients get the best care and outcome. Her reputation rests on one thing: a natural, youthful look built on anatomy, science and artistic skill. Many clients notice a change after just one or two visits, depending on the treatment.</p>
   </div>
-  <figure class="cert">${pic('victoria-adamov-certificates', 'Victoria Adamov’s framed diplomas and certificates on the clinic wall', { p, sizes: '(max-width: 800px) 90vw, 320px' })}<figcaption class="mono">Diplomas &amp; certificates, on the clinic wall</figcaption></figure>
+  <figure class="cert">${pic('rebecca-victoria-adam-certificates', 'Rebecca Victoria Adam’s framed diplomas and certificates on the clinic wall', { p, sizes: '(max-width: 800px) 90vw, 320px' })}<figcaption class="mono">Diplomas &amp; certificates, on the clinic wall</figcaption></figure>
 </div></section>
 
 <section class="section vision"><div class="wrap">
-  <div class="sec-head"><p class="mono eyebrow">Victoria’s vision</p><h2>Start young, stay young.</h2></div>
+  <div class="sec-head"><p class="mono eyebrow">Rebecca’s vision</p><h2>Start young, stay young.</h2></div>
   <div class="vision-grid">
     <div class="prose">
       <p><b>What is the best age to think about medical aesthetics?</b> “There’s no age limit, as long as you are 18 or older, to start looking after what you have. Every age brings its own concerns: acne and acne scars when you’re young, then enlarged pores, then wrinkles. Starting a maintenance program at the right time means it won’t be so hard to get the results you want later.”</p>
@@ -455,7 +455,7 @@ function about() {
     <div class="prose">
       <p>“I have wonderful clients I’ve seen since they were in their thirties. They’re in their fifties now, and they look radiant. Taking a good few years off a client’s age is why I’m so passionate about what I do.”</p>
       <p>“The goal is to age as gracefully as possible. If you start early enough, we can help delay the ageing process, and that’s something each of us deserves.”</p>
-      <p class="sig-name">Yours, Victoria Adamov</p>
+      <p class="sig-name">Yours, Rebecca Victoria Adam</p>
     </div>
   </div>
 </div></section>
@@ -469,8 +469,8 @@ function about() {
 ${ctaBand(p, 'Your first step: a conversation.')}`;
   return page({
     file: 'about/index.html', p, canonical: 'about/', current: 'about',
-    title: 'About Victoria Adamov, RN | Beauty Medical Clinic',
-    desc: 'Victoria Adamov, RN and Certified Advanced Cosmetic Injector: 30+ years in medicine and a trainer of doctors and nurses in Botox, fillers and sclerotherapy.',
+    title: 'About Rebecca Victoria Adam, RN | Beauty Medical Clinic',
+    desc: 'Rebecca Victoria Adam, RN and Certified Advanced Cosmetic Injector: 30+ years in medicine and a trainer of doctors and nurses in Botox, fillers and sclerotherapy.',
     ogImg: 'assets/og.png',
     ld: [{ '@type': 'AboutPage', url: SITE + 'about/', about: { '@id': SITE + '#victoria' } }, person, { ...biz, hasOfferCatalog: undefined }, crumbs([['Home', ''], ['About', 'about/']])], body
   });
@@ -483,7 +483,7 @@ function training() {
 <section class="p-hero"><div class="wrap">
   <nav class="crumbs mono" aria-label="Breadcrumb"><a href="${p}">Home</a> / <span>Training</span></nav>
   <h1>Hands-on aesthetics training for doctors and nurses</h1>
-  <p class="lede">Victoria Adamov, RN has taught medical professionals for more than ten years: hundreds of physicians and registered nurses from Australia, Europe and North America have learned her techniques.</p>
+  <p class="lede">Rebecca Victoria Adam, RN has taught medical professionals for more than ten years: hundreds of physicians and registered nurses from Australia, Europe and North America have learned her techniques.</p>
 </div></section>
 <section class="section"><div class="wrap train-grid">
   ${[['Botox & Dysport', 'Injection technique for the upper face: muscle anatomy, injection points, dosing and avoiding complications such as brow or lid ptosis.'], ['Dermal fillers', 'Hyaluronic acid filler placement for lips, cheeks, folds, chin and jawline, with an emphasis on natural, anatomy-led results.'], ['Sclerotherapy', 'Treating spider and reticular veins: patient selection, technique, compression and aftercare.']].map(([h, p2], i) => `<div class="train"><span class="mono">0${i + 1}</span><h2>${h}</h2><p>${p2}</p></div>`).join('')}
@@ -492,11 +492,11 @@ function training() {
   <h2>Course dates and enrolment</h2>
   <p>Training is offered to medical doctors and registered nurses. For upcoming dates, class size and pricing, please call <a href="${F.tel}">${F.phone}</a> or email <a href="mailto:${F.email}?subject=Training%20enquiry">${F.email}</a>.</p>
 </div></section>
-${ctaBand(p, 'Ask about the next course.', 'Call, text or email Victoria to hear about upcoming training dates.')}`;
+${ctaBand(p, 'Ask about the next course.', 'Call, text or email Rebecca to hear about upcoming training dates.')}`;
   return page({
     file: 'training/index.html', p, canonical: 'training/', current: 'training',
     title: 'Botox, Filler & Sclerotherapy Training | Beauty Medical Clinic',
-    desc: 'Hands-on Botox, dermal filler and sclerotherapy training for doctors and registered nurses with Victoria Adamov, RN, in Thornhill. Ask about course dates.',
+    desc: 'Hands-on Botox, dermal filler and sclerotherapy training for doctors and registered nurses with Rebecca Victoria Adam, RN, in Thornhill. Ask about course dates.',
     ld: [{ '@type': 'WebPage', url: SITE + 'training/', name: 'Aesthetics training for doctors and nurses', provider: { '@id': SITE + '#victoria' } }, person, crumbs([['Home', ''], ['Training', 'training/']])], body
   });
 }
@@ -508,7 +508,7 @@ function contact() {
 <section class="p-hero"><div class="wrap">
   <nav class="crumbs mono" aria-label="Breadcrumb"><a href="${p}">Home</a> / <span>Contact</span></nav>
   <h1>Book a consultation in Thornhill</h1>
-  <p class="lede">Call or text <a href="${F.tel}">${F.phone}</a>, message on WhatsApp, or send the form below and Victoria will get back to you to arrange a time.</p>
+  <p class="lede">Call or text <a href="${F.tel}">${F.phone}</a>, message on WhatsApp, or send the form below and Rebecca will get back to you to arrange a time.</p>
 </div></section>
 <section class="section contact-sec" id="book"><div class="wrap contact-grid">
   <form class="form" data-form novalidate>
@@ -518,7 +518,7 @@ function contact() {
     <label>I’m interested in<select name="treatment"><option value="">Not sure yet / general consultation</option>${CATEGORIES.map(c => `<optgroup label="${c.name}">${T.filter(t => t.cat === c.id).map(t => `<option value="${esc(t.name)}" data-slug="${t.slug}">${t.name}</option>`).join('')}</optgroup>`).join('')}<option value="Training for MDs/RNs">Training (for MDs and RNs)</option></select></label>
     <fieldset><legend>Best way to reach you</legend><label class="radio"><input type="radio" name="via" value="Phone call" checked> Call</label><label class="radio"><input type="radio" name="via" value="Text message"> Text</label><label class="radio"><input type="radio" name="via" value="Email"> Email</label></fieldset>
     <label>Message<textarea name="message" rows="4" placeholder="Days and times that suit you, or any questions."></textarea></label>
-    <p class="small muted">Please don’t include detailed medical history here; Victoria will go over it with you in person.</p>
+    <p class="small muted">Please don’t include detailed medical history here; Rebecca will go over it with you in person.</p>
     <button class="btn" type="submit">Send request</button>
     <p class="form-msg" role="status" data-form-msg></p>
   </form>

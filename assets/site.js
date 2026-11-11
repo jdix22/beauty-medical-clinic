@@ -106,7 +106,7 @@
         try {
           const r = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...d, _subject: subject }) });
           if (!r.ok) throw 0;
-          form.reset(); msg.textContent = 'Thank you. Victoria will be in touch shortly.'; return;
+          form.reset(); msg.textContent = 'Thank you. Rebecca will be in touch shortly.'; return;
         } catch { /* fall through to email */ }
       }
       location.href = `mailto:${CLINIC_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;

@@ -6,7 +6,7 @@
 const FACTS = {
   name: 'Beauty Medical Clinic',
   tagline: 'where art meets science',
-  owner: 'Victoria Adamov',
+  owner: 'Rebecca Victoria Adam',
   ownerTitle: 'Registered Nurse and Certified Advanced Cosmetic Injector',
   phone: '416-728-5697',
   phoneIntl: '+1-416-728-5697',
@@ -24,7 +24,7 @@ const FACTS = {
   mapsEmbed: 'https://maps.google.com/maps?q=7131%20Bathurst%20St%2C%20Thornhill%2C%20ON%20L4J%207Z1&z=15&output=embed',
   googleRating: 'Excellent',
   googleCount: 40,
-  about: 'Beauty Medical Clinic is a non-surgical anti-aging clinic in Thornhill, Ontario, led by Registered Nurse and Certified Advanced Cosmetic Injector Victoria Adamov, who has more than 30 years in medicine and trains doctors and nurses in Botox, dermal fillers and sclerotherapy.'
+  about: 'Beauty Medical Clinic is a non-surgical anti-aging clinic in Thornhill, Ontario, led by Registered Nurse and Certified Advanced Cosmetic Injector Rebecca Victoria Adam, who has more than 30 years in medicine and trains doctors and nurses in Botox, dermal fillers and sclerotherapy.'
 };
 
 const CATEGORIES = [
@@ -85,7 +85,7 @@ T.push({
       <p>Lines that are still visible when your face is completely relaxed often need a combination: Botox to soften the movement and a filler to lift what is left.</p>
       <p>It takes two to four days to bind to the nerve endings, so improvement starts within days and peaks at about 10–14 days. Whatever you see at two weeks is the full result.</p>` },
     { h: 'Who should not have it', html: `
-      <p>Please tell Victoria about your health and medications at your consultation. Botox and Dysport are not right for you if you have:</p>
+      <p>Please tell Rebecca about your health and medications at your consultation. Botox and Dysport are not right for you if you have:</p>
       <ul class="cols"><li>ALS (Lou Gehrig’s disease)</li><li>Myasthenia gravis</li><li>Autonomic neuropathy</li><li>Lambert-Eaton syndrome or another muscle or nerve disease</li><li>Difficulty swallowing</li><li>Weak forehead muscles or drooping eyelids</li><li>A current viral infection</li><li>Antibiotic treatment with gentamicin or amikacin</li><li>Albumin or cow’s-milk protein sensitivity (Dysport)</li></ul>
       <p>It is also not given if you are pregnant, trying to conceive, or breastfeeding. It is always better to be safe: you can have it later.</p>` },
     { h: 'Side effects, and how an experienced injector avoids them', html: `
@@ -98,7 +98,7 @@ T.push({
     ['What is recovery like?', 'You can go straight back to work. Keep your head upright for the rest of the day and don’t rub or massage the treated area, so the product stays exactly where it was placed.'],
     ['How long does Botox last?', 'Most people enjoy the effect for three to five months. Age, facial structure and expressions, smoking, diet, skincare, sun damage and repeat use can all shorten or lengthen that.'],
     ['How often can I have it?', 'Not more often than every three months in the same area. Injecting more often, or in larger amounts, raises the chance your body forms antibodies that make it less effective.'],
-    ['Botox or filler: which do I need?', 'Botox relaxes the muscle that creases a line; filler lifts a line or restores volume. Botox usually suits the upper face, fillers the cheeks, lips, folds and jaw. Many people benefit from both, which Victoria will map out at your consultation.']
+    ['Botox or filler: which do I need?', 'Botox relaxes the muscle that creases a line; filler lifts a line or restores volume. Botox usually suits the upper face, fillers the cheeks, lips, folds and jaw. Many people benefit from both, which Rebecca will map out at your consultation.']
   ],
   gallery: [['botox-units-by-area-chart', 'A diagram of the face showing typical Botox treatment areas: forehead lines, frown lines, crow’s feet, bunny lines, lip lines and the chin', 'Common treatment areas']],
   quotes: [['I am very happy!! I don’t even appear to bruise. Thank you for being someone that is so talented and trustworthy, Victoria!', 'Amber S.'], ['I was very nervous of needles and you helped me by talking me through it. You are competent, knowledgeable, and professional.', 'Debbie V.']],
@@ -109,7 +109,7 @@ T.push({
   slug: 'dermal-fillers', cat: 'injectables',
   name: 'Dermal Fillers', short: 'Dermal fillers',
   title: 'Dermal Fillers in Thornhill | Beauty Medical Clinic',
-  desc: 'Hyaluronic acid fillers for cheeks, lips, chin, jawline and smile lines in Thornhill. Natural, results you see right away. Book with Victoria Adamov, RN.',
+  desc: 'Hyaluronic acid fillers for cheeks, lips, chin, jawline and smile lines in Thornhill. Natural, results you see right away. Book with Rebecca Victoria Adam, RN.',
   img: 'dermal-filler-lip-injection', imgAlt: 'An injector placing dermal filler with a fine needle',
   card: 'Hyaluronic acid to restore volume and sculpt cheeks, chin, jaw and folds. Results right away.',
   lede: 'Hyaluronic acid (HA) fillers smooth lines and replace the fullness the face loses with time. Placed well, the right filler in the right spot gives a natural lift without surgery, and you see the result as you leave.',
@@ -123,7 +123,7 @@ T.push({
       <p>HA occurs naturally in the body, and almost half of it is in the skin, where it binds up to 1,000 times its weight in water to keep skin plump and hydrated. As we age we make less of it; skin thins, stretches and loses elasticity, and everyday expressions etch lines deeper.</p>
       <p>HA fillers hold their shape using the body’s own moisture, last longer than older fat or collagen injections, and are not made from animals, so there is no risk of animal-borne disease or reactions in people sensitive to foods like beef, chicken or eggs. <a href="../skin-boosters/">Skin boosters</a> use the same ingredient to hydrate rather than volumize.</p>` },
     { h: 'What happens during treatment', html: `
-      <ol class="steps"><li>Numbing cream can be applied to reduce discomfort.</li><li>The skin is cleansed with an antiseptic.</li><li>The clear gel is placed with a fine needle, at a depth that matches the line or area being treated. Several small injections may be used.</li><li>Victoria gently massages the area so it blends with the surrounding contours.</li><li>Ice may be applied for a few minutes to limit swelling.</li></ol>
+      <ol class="steps"><li>Numbing cream can be applied to reduce discomfort.</li><li>The skin is cleansed with an antiseptic.</li><li>The clear gel is placed with a fine needle, at a depth that matches the line or area being treated. Several small injections may be used.</li><li>Rebecca gently massages the area so it blends with the surrounding contours.</li><li>Ice may be applied for a few minutes to limit swelling.</li></ol>
       <p>Because it is quick, many clients come in on a lunch hour and go back to work.</p>` },
     { h: 'After your appointment', html: `
       <ul class="ticks"><li>Results are visible straight away.</li><li>Redness and swelling are normal for up to a few hours.</li><li>Tenderness can last a few hours or a few days.</li><li>The area may feel firm for one to two weeks before it softens and settles.</li></ul>
@@ -135,7 +135,7 @@ T.push({
     ['How long does filler treatment take?', 'Anywhere from a few minutes to about an hour, depending on how many areas are treated.'],
     ['When will I see results?', 'Immediately. Some swelling and firmness can soften the final shape for a week or two while the filler settles.'],
     ['Will I bruise?', 'You might. Bruising is the most common side effect, especially under the eyes and around the mouth. Following the two-week preparation steps above reduces the risk.'],
-    ['Which brands do you use?', 'Hyaluronic acid fillers such as Juvéderm, Restylane and Emervel. Victoria chooses the product to suit the area and the look you want.']
+    ['Which brands do you use?', 'Hyaluronic acid fillers such as Juvéderm, Restylane and Emervel. Rebecca chooses the product to suit the area and the look you want.']
   ],
   gallery: [
     ['dermal-fillers-before-after-1', 'Before and after dermal filler treatment, front view of a client’s lower face', 'Dermal fillers · before / after'],
@@ -163,7 +163,7 @@ T.push({
         <div><b>02</b><h3>Choose the right filler</h3><p>There are many kinds. If you are new to filler, a hyaluronic acid product such as Juvéderm, Restylane or Emervel is the sensible start: if you don’t love it, an enzyme called hyaluronidase dissolves it.</p></div>
         <div><b>03</b><h3>Be conservative</h3><p>Too little is always better than too much. Start small and build toward your goal. If people can tell you’ve had filler, it has probably gone too far.</p></div>
         <div><b>04</b><h3>Be specific</h3><p>Almost everyone asks for “natural”, but that means something different to each person. Describe exactly what you want so expectations are clear.</p></div>
-        <div><b>05</b><h3>Keep expectations realistic</h3><p>Bring inspiration photos, but very full lips don’t suit every face. Victoria will advise what will look right on yours.</p></div>
+        <div><b>05</b><h3>Keep expectations realistic</h3><p>Bring inspiration photos, but very full lips don’t suit every face. Rebecca will advise what will look right on yours.</p></div>
       </div>` },
     { h: 'Not sure yet? Try it for an evening first', html: `<p>If you have wondered whether a fuller pout would suit you, the <a href="../cinderella-facelift/">Cinderella lips</a> treatment uses sterile saline to give a temporary plump that fades within hours, so you can see the look before committing.</p>` }
   ],
@@ -191,9 +191,9 @@ T.push({
       <p>Like Cinderella’s evening at the ball, the effect wears off after the night is over. Sterile saline is injected along the lip line, into the cheeks or other parts of the face, the change is visible straight away, and it fades within about eight to twelve hours.</p>
       <p>The trend started in Europe, and Beauty Medical Clinic was among the first clinics in the Toronto area to introduce Cinderella Lips and Cinderella Facelifts.</p>` },
     { h: 'Who it is for', html: `
-      <blockquote class="pull"><p>“Many women tell me they’ve thought about lip or cheek fillers but were never sure whether a fuller pout or more defined features would be right for them. This lets them try it first, see how friends and family react, and grow comfortable with the change.”</p><cite>Victoria Adamov, RN</cite></blockquote>
+      <blockquote class="pull"><p>“Many women tell me they’ve thought about lip or cheek fillers but were never sure whether a fuller pout or more defined features would be right for them. This lets them try it first, see how friends and family react, and grow comfortable with the change.”</p><cite>Rebecca Victoria Adam, RN</cite></blockquote>
       <ul class="ticks"><li>Weddings, galas, holiday parties and New Year’s</li><li>Photo sessions and special occasions</li><li>Anyone curious about filler who wants to see the look first</li></ul>` },
-    { h: 'Inexpensive, but still a medical treatment', html: `<p>It is quick and simple, but it is still an injection. Victoria’s advice: choose someone experienced and properly qualified, with a good eye for facial anatomy, who will tell you when enough is enough. The result should look natural and enhance your features rather than change them.</p>` }
+    { h: 'Inexpensive, but still a medical treatment', html: `<p>It is quick and simple, but it is still an injection. Rebecca’s advice: choose someone experienced and properly qualified, with a good eye for facial anatomy, who will tell you when enough is enough. The result should look natural and enhance your features rather than change them.</p>` }
   ],
   faq: [
     ['How long do Cinderella lips last?', 'About eight to twelve hours, which is enough for one event.'],
@@ -208,7 +208,7 @@ T.push({
   slug: 'skin-boosters', cat: 'injectables',
   name: 'Skin Boosters', short: 'Skin boosters',
   title: 'Restylane Skinboosters in Thornhill | Beauty Medical Clinic',
-  desc: 'Restylane Skinboosters in Thornhill: hyaluronic acid micro-injections that hydrate the face, neck, hands and décolletage. Book with Victoria Adamov, RN.',
+  desc: 'Restylane Skinboosters in Thornhill: hyaluronic acid micro-injections that hydrate the face, neck, hands and décolletage. Book with Rebecca Victoria Adam, RN.',
   img: 'skin-boosters-hydration', imgAlt: 'A woman with dewy, hydrated skin surrounded by a splash of water',
   card: 'Micro-injections of hyaluronic acid that hydrate skin from within. Face, neck, hands.',
   lede: 'Skin boosters are tiny injections of hyaluronic acid into the skin itself. Unlike fillers they don’t add shape or volume; they hydrate, so skin becomes smoother, more radiant and more elastic.',
@@ -421,7 +421,7 @@ T.push({
   faq: [
     ['Does Forma hurt?', 'It is essentially painless and needs no downtime. Mild redness fades within a few hours.'],
     ['How many Forma sessions do I need?', 'Typically weekly sessions over six weeks. Mild laxity may need fewer, spaced further apart.'],
-    ['Can Forma be combined with other treatments?', 'Yes, with most facials, injectables and fillers. Victoria will advise on timing.']
+    ['Can Forma be combined with other treatments?', 'Yes, with most facials, injectables and fillers. Rebecca will advise on timing.']
   ],
   gallery: [
     ['forma-before-after-1', 'Before and after a course of Forma on the lower face and jawline', 'Forma · before / after'],
@@ -444,7 +444,7 @@ T.push({
   lede: 'Sclerotherapy clears spider veins and small (reticular) leg veins with micro-injections. A sclerosing solution is placed in the vein through a very fine needle; it irritates the lining so the vein closes, scars down and fades away. Many veins can be treated in one visit.',
   facts: [['Session', 'About 60 minutes'], ['Typical course', '3–5 sessions (2–3 if mild)'], ['Anesthesia', 'Usually not needed'], ['Bruising fades', '10–14 days']],
   sections: [
-    { h: 'Why come to Victoria for veins', html: `<p>Victoria has taught sclerotherapy to doctors and registered nurses for more than ten years. Spider veins are the treatment her Google reviewers mention most. One client, after years of hiding her legs, wrote that she can’t believe she will wear dresses again.</p>` },
+    { h: 'Why come to Rebecca for veins', html: `<p>Rebecca has taught sclerotherapy to doctors and registered nurses for more than ten years. Spider veins are the treatment her Google reviewers mention most. One client, after years of hiding her legs, wrote that she can’t believe she will wear dresses again.</p>` },
     { h: 'What happens', html: `<ol class="steps"><li>Wear loose clothing. The veins to treat are identified.</li><li>Each vein is injected with a very fine needle. You’ll feel a small sting that burns for a few seconds; most people find it far less painful than expected. Numbing cream is available if you need it.</li><li>Your compression stockings go on afterwards.</li></ol>
       <p>Sometimes a few sessions two weeks apart are needed. Winter is the ideal season, as stockings are easy to wear under clothes.</p>` },
     { h: 'Compression stockings: the step that makes it work', html: `<p>Wearing thigh-high compression stockings is essential. They keep the walls of the treated vein pressed together so the body can break it down, speed healing, reduce the chance of pigmentation, and help protect against clotting by keeping blood moving. Without them, veins refill with blood and treatment is much less effective.</p>
