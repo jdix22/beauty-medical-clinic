@@ -538,3 +538,6 @@ ul:not(.ticks).cols li{padding:3px 0}
 .fm-stage::after{border-radius:0}
 .tcard-img{aspect-ratio:4/4.6}
 .meet-photo img{aspect-ratio:1/1.08;object-position:45% 60%}
+/* portrait of Rebecca (2026-11-11) */
+.hero-card img{object-position:50% 28%}
+.meet-photo img{aspect-ratio:4/5;object-position:50% 20%}

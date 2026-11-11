@@ -284,7 +284,7 @@ function home() {
 
 <section class="section meet">
   <div class="wrap meet-grid">
-    <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, Registered Nurse and founder of Beauty Medical Clinic, smiling in dark-framed glasses', { sizes: '(max-width: 800px) 90vw, 40vw' })}<figcaption class="mono">Rebecca Victoria Adam, RN · Founder</figcaption></figure>
+    <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, Registered Nurse and founder of Beauty Medical Clinic, in red-framed glasses and pearls, resting her chin on her hand', { sizes: '(max-width: 800px) 90vw, 40vw' })}<figcaption class="mono">Rebecca Victoria Adam, RN · Founder</figcaption></figure>
     <div class="meet-copy">
       <p class="mono eyebrow">Meet your injector</p>
       <h2>A nurse first. An artist always.</h2>
@@ -429,7 +429,7 @@ function about() {
     <h1>Meet Rebecca Victoria Adam, RN</h1>
     <p class="lede">Registered Nurse, Certified Advanced Cosmetic Injector, and the founder of Beauty Medical Clinic in Thornhill. More than 30 years in medicine; more than a decade teaching doctors and nurses the techniques she uses on her own clients.</p>
   </div>
-  <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Portrait of Rebecca Victoria Adam, founder of Beauty Medical Clinic', { p, eager: true, sizes: '(max-width: 800px) 90vw, 40vw' })}</figure>
+  <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Portrait of Rebecca Victoria Adam, RN, founder of Beauty Medical Clinic, in red-framed glasses and a pearl necklace', { p, eager: true, sizes: '(max-width: 800px) 90vw, 40vw' })}</figure>
 </div></section>
 
 <section class="section"><div class="wrap prose-grid">
