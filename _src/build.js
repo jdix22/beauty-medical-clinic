@@ -117,7 +117,7 @@ const biz = {
 const person = {
   '@type': 'Person', '@id': SITE + '#victoria', name: F.owner, jobTitle: F.ownerTitle,
   worksFor: { '@id': SITE + '#business' }, image: SITE + 'assets/img/rebecca-victoria-adam-rn.webp', url: SITE + 'about/',
-  knowsAbout: ['Botox and Dysport injections', 'Dermal fillers', 'Sclerotherapy', 'PRP', 'Mesotherapy', 'Medical aesthetics training']
+  knowsAbout: ['Botox and Dysport injections', 'Dermal fillers', 'Sclerotherapy', 'PRP', 'Mesotherapy', 'Medical aesthetics training', 'Art']
 };
 const website = { '@type': 'WebSite', '@id': SITE + '#website', url: SITE, name: F.name, publisher: { '@id': SITE + '#business' }, inLanguage: 'en-CA' };
 const crumbs = (items) => ({ '@type': 'BreadcrumbList', itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it[0], item: SITE + it[1] })) });
@@ -290,6 +290,7 @@ function home() {
       <h2>A nurse first. An artist always.</h2>
       <p>Rebecca began her career as a Registered Nurse on a bone-marrow transplant unit at one of Israel’s leading hospitals, then worked as a wound-care nurse and educator for Johnson &amp; Johnson. In Canada she re-qualified as an RN and spent several years as a visiting nurse before moving into medical aesthetics, where she trained alongside leading dermatologists and plastic surgeons.</p>
       <p>Today she is one of Canada’s sought-after aesthetics trainers. For more than ten years she has taught hands-on Botox, dermal filler and sclerotherapy technique to doctors and registered nurses, and hundreds of professionals from Australia, Europe and North America have learned from her.</p>
+      <p>Art is her second passion. A multidisciplinary artist, Rebecca brings the same eye for harmony and natural beauty to every face she treats.</p>
       <ul class="cred"><li><b>30<span class="pl">+</span> yrs</b><span>in medicine</span></li><li><b>10<span class="pl">+</span> yrs</b><span>training MDs &amp; RNs</span></li><li><b>100s</b><span>of professionals taught worldwide</span></li></ul>
       <a class="link" href="about/">Rebecca’s story and approach ${icon.arrow}</a>
     </div>
@@ -441,6 +442,8 @@ function about() {
     <p>Her technique earned her a reputation as one of Canada’s top medical aesthetics trainers. For over ten years she has taught hands-on Botox, dermal filler and sclerotherapy courses for medical doctors and registered nurses, and has trained hundreds of professionals from Australia, Europe and North America. <a href="${p}training/">About training</a>.</p>
     <h2>Anatomy, science and an artist’s eye</h2>
     <p>Rebecca keeps up with a fast-moving field, adopting new techniques and technology so clients get the best care and outcome. Her reputation rests on one thing: a natural, youthful look built on anatomy, science and artistic skill. Many clients notice a change after just one or two visits, depending on the treatment.</p>
+    <h2>An artist at heart</h2>
+    <p>Art is Rebecca’s second passion. She is a multidisciplinary artist, and she brings that creativity and artistic vision into her work in medical aesthetics. As she sees it, aesthetic medicine is an art in itself: it takes knowledge and precision, but also an artistic eye, a sense of harmony and an appreciation for natural beauty.</p>
   </div>
   <figure class="cert">${pic('rebecca-victoria-adam-certificates', 'Rebecca Victoria Adam’s framed diplomas and certificates on the clinic wall', { p, sizes: '(max-width: 800px) 90vw, 320px' })}<figcaption class="mono">Diplomas &amp; certificates, on the clinic wall</figcaption></figure>
 </div></section>
