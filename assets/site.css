@@ -549,3 +549,132 @@ ul:not(.ticks).cols li{padding:3px 0}
 .banners{display:grid;gap:18px}
 .banners figure{margin:0;background:#fff}
 .banners img{width:100%;height:auto;display:block}
+
+/* ───── Bridal Beauty Collection (v5) ───── */
+.foot-grid{grid-template-columns:1.3fr .8fr .8fr .9fr 1.3fr;gap:40px}
+.mega-bridal{margin-top:14px}
+/* home teaser */
+.bridal-teaser{background:var(--blush)}
+.bt-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
+.bt-photo{margin:0;position:relative}
+.bt-photo img{width:100%;aspect-ratio:5/4;object-fit:cover}
+.bt-photo::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.65);pointer-events:none}
+.bt-copy>p:not(.eyebrow){color:var(--ink-2);font-weight:300;max-width:46ch}
+/* hero + intro */
+.bridal-hero .h1-title{font-size:.48em}
+.bridal-hero .eyebrow{margin-bottom:16px}
+.bi-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,7vw,110px);align-items:center}
+.bi-grid .prose p{font-size:19px}
+.bi-quote{margin:0;padding:34px 0 0;border-top:1px solid var(--gold-2)}
+.bi-quote p{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.4vw,46px);line-height:1.15;margin:0;color:var(--ink)}
+.bi-quote em{color:var(--teal-2)}
+/* planner + timeline (signature detail) */
+.planner{background:var(--sand)}
+.planner-box{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;background:var(--paper);border-top:1px solid var(--gold);padding:26px 30px;margin-bottom:44px}
+.planner-field{display:flex;flex-direction:column;gap:8px;flex:none}
+.planner-field .mono{color:var(--gold);font-size:10.5px}
+.planner-field input{font:400 17px var(--sans);color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:0;padding:12px 14px;min-width:220px}
+.planner-field input:focus{outline:1px solid var(--gold);border-color:var(--gold)}
+.planner-out{flex:1 1 320px;margin:0;color:var(--ink-2);font-weight:300}
+.planner-out b{font-family:var(--serif);font-weight:500;font-size:24px;color:var(--ink);display:block;line-height:1.2;margin-bottom:2px}
+.timeline{list-style:none;margin:0 0 22px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--gold-2)}
+.tl-stage{position:relative;padding:38px 22px 24px;transition:background .4s,opacity .4s,transform .4s var(--ease)}
+.tl-dot{position:absolute;left:22px;top:2px;width:15px;height:15px;border-radius:50%;background:var(--sand);border:1px solid var(--gold);transition:all .4s}
+.tl-when{color:var(--gold);font-size:11px;margin:0 0 10px}
+.tl-stage p:last-child{margin:0;color:var(--ink-2);font-weight:300;font-size:15.5px}
+.tl-stage.on{background:var(--paper);transform:translateY(-4px);box-shadow:var(--shadow)}
+.tl-stage.on .tl-dot{background:var(--gold);box-shadow:0 0 0 5px rgba(169,130,79,.18)}
+.tl-stage.on .tl-when{color:var(--teal-2)}
+.tl-stage.done{opacity:.45}
+.tl-stage.done .tl-dot{background:var(--gold-2)}
+/* packages as wedding stationery */
+.packages{background:var(--paper)}
+.invite-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.invite{background:#fffefb;border:1px solid var(--gold-2);padding:9px;scroll-margin-top:110px}
+.invite-in{border:1px solid var(--gold-soft);padding:clamp(30px,4vw,48px) clamp(22px,3.4vw,44px);text-align:center;height:100%;display:flex;flex-direction:column;align-items:center}
+.invite-in>p{color:var(--ink-2);font-weight:300;max-width:46ch}
+.invite-n{color:var(--gold)!important;font-size:10.5px!important;font-weight:500!important;margin:0 0 12px}
+.invite h3{font-size:clamp(32px,3vw,40px);font-weight:400;margin:0 0 6px}
+.invite-price{font-family:var(--serif);font-size:52px;line-height:1;color:var(--ink)!important;margin:6px 0 12px;font-weight:300!important}
+.invite-price span{font:500 11px var(--sans);letter-spacing:.2em;color:var(--gold);margin-left:6px;vertical-align:.6em}
+.invite-price .tba{font-family:var(--serif);font-style:italic;font-size:24px;letter-spacing:0;color:var(--gold);margin:0;vertical-align:0}
+.invite-tag{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--teal-2)!important;margin:0 0 18px}
+.invite-h{color:var(--gold)!important;font-size:10.5px!important;margin:8px 0 10px}
+.invite-list{list-style:none;margin:0 0 20px;padding:0}
+.invite-list li{padding:7px 0;border-bottom:1px solid var(--line-2);font-size:15.5px}
+.invite-list li:last-child{border-bottom:0}
+.invite-list li::before{content:"\25C6";color:var(--gold-2);font-size:7px;vertical-align:.35em;margin-right:10px}
+.invite-close{font-family:var(--serif);font-style:italic;font-size:23px;color:var(--teal-2)!important;margin:6px 0 14px}
+.invite-note{font-size:13.5px;color:var(--muted)!important}
+.invite .btn{margin-top:auto}
+/* beauty crew */
+.crew{background:var(--blush)}
+.crew-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
+.crew-photo{margin:0}
+.crew-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 0 0}
+.crew-grid>div>p:not(.eyebrow){color:var(--ink-2);font-weight:300}
+.bestie{background:var(--paper);border-top:1px solid var(--gold);padding:24px 28px;margin:24px 0}
+.bestie h3{font-size:30px;margin:0 0 8px}
+.bestie p{margin:0 0 8px;color:var(--ink-2);font-weight:300}
+/* your way */
+.yw-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:start}
+.yw-grid>div>p:not(.eyebrow){color:var(--ink-2);font-weight:300}
+.yw-list{list-style:none;margin:0;padding:0}
+.yw-list li a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 0;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;font-family:var(--serif);font-size:24px}
+.yw-list li:last-child a{border-bottom:1px solid var(--line)}
+.yw-list svg{color:var(--gold);transition:transform .3s var(--ease)}
+.yw-list a:hover{color:var(--gold)} .yw-list a:hover svg{transform:translateX(5px)}
+.yw-close{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(28px,3vw,40px);line-height:1.25;text-align:center;max-width:26ch;margin:clamp(56px,7vw,90px) auto 0;color:var(--teal-2)}
+/* closing */
+.bridal-cta{background:var(--teal);color:var(--paper)}
+.bridal-cta h2{color:var(--paper)} .bridal-cta h2 em{color:var(--gold-2)}
+.bridal-cta .eyebrow{color:var(--gold-2)}
+.bridal-cta p:not(.eyebrow){color:rgba(253,251,247,.86);font-weight:300}
+.bc-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(40px,7vw,110px);align-items:center}
+.bc-photo{margin:0}
+.bc-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 0 0}
+.bridal-cta .btn{background:var(--gold);border-color:var(--gold)}
+.bridal-cta .btn:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.bridal-cta .btn-ghost{background:transparent;color:var(--paper);border-color:rgba(253,251,247,.4)}
+.bridal-cta .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+.bridal-cta .fine{color:rgba(253,251,247,.6)!important;border-top:1px solid var(--line-l);padding-top:22px;margin-top:clamp(48px,6vw,80px)}
+.bt-grid>*,.bi-grid>*,.crew-grid>*,.yw-grid>*,.bc-grid>*{min-width:0}
+@media (max-width:1180px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){
+  .bt-grid,.bi-grid,.crew-grid,.yw-grid,.bc-grid,.invite-grid{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr;gap:0}
+  .timeline::before{left:7px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .tl-stage{padding:4px 18px 22px 36px}
+  .tl-dot{left:0;top:6px}
+  .tl-stage.on{transform:none;padding-top:16px;padding-bottom:18px}
+  .tl-stage.on .tl-dot{top:18px}
+  .crew-photo,.bc-photo{max-width:440px;width:100%;margin:0 auto}
+}
+@media (max-width:640px){
+  .foot-grid{grid-template-columns:1fr}
+  .planner-box{padding:22px 20px}
+  .planner-field,.planner-field input{width:100%;min-width:0}
+  .invite{padding:7px}
+  .invite-price{font-size:44px}
+}
+
+/* Bridal editor fixes (v5): readable small gold text, calmer prices, stable timeline */
+:root{--gold-ink:#7E5F35}
+.eyebrow,.tl-when,.planner-field .mono,.invite-n,.invite-h,.invite-price span,.invite-price .tba,.tcard-n,.zp-n,.facts dt,.res-cap svg{color:var(--gold-ink)}
+.invite-n,.invite-h{color:var(--gold-ink)!important}
+.invite-price{font-size:38px}
+.invite-price .tba{font-size:22px}
+.tl-stage.done{opacity:.65}
+.bi-by{display:flex;align-items:center;gap:16px;margin-top:30px;text-decoration:none;color:var(--ink);background:var(--paper);padding:14px 22px 14px 14px;border-top:1px solid var(--gold-2);transition:transform .4s var(--ease)}
+.bi-by:hover{color:var(--ink);transform:translateY(-2px)}
+.bi-by img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:50% 28%;flex:none}
+.bi-by span{font-size:13.5px;color:var(--ink-2);line-height:1.45}
+.bi-by b{display:block;font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink);line-height:1.15}
+.bridal-cta .btn{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.bridal-cta .btn:hover{background:var(--gold-2);border-color:var(--gold-2);color:var(--ink)}
+.bridal-cta .btn-ghost{background:transparent;color:var(--paper);border-color:rgba(253,251,247,.45)}
+@media (max-width:900px){
+  .tl-stage,.tl-stage.on{padding:14px 18px 18px 36px;transform:none}
+  .tl-dot,.tl-stage.on .tl-dot{top:16px}
+}

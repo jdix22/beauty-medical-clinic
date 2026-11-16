@@ -1,13 +1,13 @@
 /* Builds every page of the site from content.js.  Run: node _src/build.js */
 const fs = require('fs');
 const path = require('path');
-const { FACTS: F, CATEGORIES, REVIEWS, ZONES, T, bySlug, REDIRECTS } = require('./content');
+const { FACTS: F, CATEGORIES, REVIEWS, ZONES, T, bySlug, REDIRECTS, BRIDAL } = require('./content');
 
 const ROOT = path.join(__dirname, '..');
 // Live on beautymedical.ca (Cloudflare Worker). The GitHub Pages copy points its canonical here.
 const SITE = 'https://beautymedical.ca/';
 const NOINDEX = false;
-const VERSION = '4';
+const VERSION = '5';
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const img = (name, alt, w, h, o = {}) => `<img src="${o.p || ''}assets/img/${name}.webp" alt="${esc(alt)}" width="${w}" height="${h}"${o.eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${o.cls ? ` class="${o.cls}"` : ''}${o.sizes ? ` sizes="${o.sizes}"` : ''}${o.srcset ? ` srcset="${o.srcset}"` : ''}>`;
@@ -52,6 +52,7 @@ function header(p, current) {
     ${logo(p)}
     <nav class="nav" aria-label="Main">
       <button class="nav-tr" type="button" aria-expanded="false" aria-controls="mega" data-mega-btn>Treatments <span aria-hidden="true">+</span></button>
+      <a href="${p}bridal-beauty/"${cur('bridal')}>Bridal</a>
       <a href="${p}about/"${cur('about')}>About Rebecca</a>
       <a href="${p}#results">Results</a>
       <a href="${p}training/"${cur('training')}>Training</a>
@@ -64,13 +65,14 @@ function header(p, current) {
     </div>
   </div>
   <div class="mega" id="mega" hidden data-mega>
-    <div class="wrap mega-in">${treatmentsMenu(p)}<div class="mega-col mega-note"><p class="mono">Not sure where to start?</p><p>Tap the face map on the home page, or ask Rebecca at a consultation.</p><a class="link" href="${p}services/">All treatments ${icon.arrow}</a></div></div>
+    <div class="wrap mega-in">${treatmentsMenu(p)}<div class="mega-col mega-note"><p class="mono">Not sure where to start?</p><p>Tap the face map on the home page, or ask Rebecca at a consultation.</p><a class="link" href="${p}services/">All treatments ${icon.arrow}</a><a class="link mega-bridal" href="${p}bridal-beauty/">Bridal Beauty Collection ${icon.arrow}</a></div></div>
   </div>
 </header>
 <div class="drawer" id="drawer" hidden data-drawer>
     <div class="drawer-in">
       <a href="${p}services/" class="drawer-big">All treatments</a>
       ${CATEGORIES.map(c => `<details><summary>${c.name}</summary><ul>${T.filter(t => t.cat === c.id).map(t => `<li><a href="${p}${t.slug}/">${t.short}</a></li>`).join('')}</ul></details>`).join('')}
+      <a href="${p}bridal-beauty/" class="drawer-big">Bridal Beauty Collection</a>
       <a href="${p}about/" class="drawer-big">About Rebecca</a>
       <a href="${p}#results" class="drawer-big">Results</a>
       <a href="${p}training/" class="drawer-big">Training</a>
@@ -85,6 +87,7 @@ function footer(p) {
   <div class="wrap foot-grid">
     <div class="foot-brand">${logo(p)}<p class="foot-tag mono">${F.tagline}</p><p>${F.about}</p></div>
     <div><p class="foot-h">Visit</p><address>${F.building}<br>${F.street}<br>${F.city}, ${F.region} ${F.postal}<br><span class="muted">Near ${F.intersection}</span></address><a class="link" href="${F.mapsUrl}" rel="noopener" target="_blank">Get directions ${icon.arrow}</a></div>
+    <div><p class="foot-h">Weddings</p><ul class="foot-list"><li><a href="${p}bridal-beauty/">Bridal Beauty Collection</a></li><li><a href="${p}bridal-beauty/#packages">Bridal packages</a></li><li><a href="${p}bridal-beauty/#planner">Bridal beauty timeline</a></li></ul></div>
     <div><p class="foot-h">Contact</p><ul class="foot-list"><li><a href="${F.tel}">${F.phone}</a></li><li><a href="${F.sms}">Text us</a> · <a href="${F.whatsapp}" rel="noopener" target="_blank">WhatsApp</a></li><li><a href="mailto:${F.email}">${F.email}</a></li></ul></div>
     <div><p class="foot-h">Treatments</p><ul class="foot-list cols2">${T.map(t => `<li><a href="${p}${t.slug}/">${t.short}</a></li>`).join('')}</ul></div>
   </div>
@@ -282,6 +285,18 @@ function home() {
   </div>
 </section>
 
+<section class="section bridal-teaser">
+  <div class="wrap bt-grid">
+    <figure class="bt-photo">${pic('bridal-lace-dress-getting-ready', 'A friend’s hands fastening the lace back of a bride’s wedding dress', { sizes: '(max-width: 900px) 90vw, 45vw' })}</figure>
+    <div class="bt-copy">
+      <p class="mono eyebrow">Bridal Beauty Collection</p>
+      <h2>Big day. <em>Beautiful you.</em></h2>
+      <p>Skin packages for the bride, the mothers, the bridesmaids and everyone celebrating by her side, from <b>$${Math.min(...BRIDAL.packages.filter(b => b.price).map(b => b.price))}</b>. Less is more. Natural beauty comes first.</p>
+      <a class="link" href="bridal-beauty/">See the bridal packages ${icon.arrow}</a>
+    </div>
+  </div>
+</section>
+
 <section class="section meet">
   <div class="wrap meet-grid">
     <figure class="meet-photo">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, Registered Nurse and founder of Beauty Medical Clinic, in red-framed glasses and pearls, resting her chin on her hand', { sizes: '(max-width: 800px) 90vw, 40vw' })}<figcaption class="mono">Rebecca Victoria Adam, RN, Certified Aesthetic Injector · Founder</figcaption></figure>
@@ -420,6 +435,132 @@ ${ctaBand(p)}`;
   });
 }
 
+/* ───────── BRIDAL BEAUTY COLLECTION ───────── */
+function bridal() {
+  const p = '../';
+  const money = n => `$${n}`;
+  const pkg = (b, i) => `<article class="invite" id="${b.slug}">
+    <div class="invite-in">
+      <p class="mono invite-n">No. ${i + 1}</p>
+      <h3>${b.name}</h3>
+      <p class="invite-price">${b.price ? `${money(b.price)}<span>CAD</span>` : '<span class="tba">Price to be announced</span>'}</p>
+      <p class="invite-tag">${b.tag}</p>
+      <p>${b.intro}</p>
+      <p class="mono invite-h">Your package includes</p>
+      <ul class="invite-list">${b.includes.map(x => `<li>${x}</li>`).join('')}</ul>
+      ${b.body ? `<p>${b.body}</p>` : ''}
+      ${b.perfect ? `<p><b>Perfect for:</b> ${b.perfect}</p>` : ''}
+      <p class="invite-close">${b.close}</p>
+      ${b.note ? `<p class="invite-note">${b.note}</p>` : ''}
+      <a class="btn btn-sm" href="${p}contact/?t=${b.slug}#book">Book ${b.name.replace(/^The /, 'the ')}</a>
+    </div>
+  </article>`;
+  const stages = BRIDAL.timeline.map((s, i) => `<li class="tl-stage" data-min="${s.min}"><span class="tl-dot" aria-hidden="true"></span><p class="mono tl-when">${s.when}</p><p>${s.text}</p></li>`).join('');
+  const body = `
+<section class="t-hero bridal-hero">
+  <div class="wrap t-hero-grid">
+    <div>
+      <nav class="crumbs mono" aria-label="Breadcrumb"><a href="${p}">Home</a> / <span>Bridal Beauty Collection</span></nav>
+      <p class="mono eyebrow">For the bride &amp; those closest to her heart</p>
+      <h1>Bridal Beauty Collection <span class="h1-title">Big Day. Beautiful You.</span></h1>
+      <p class="lede">Every wedding is a celebration of love, beauty and unforgettable moments. From the beautiful bride to the mothers, bridesmaids and everyone sharing in the celebration, we believe everyone deserves to look and feel their best.</p>
+      <div class="hero-actions"><a class="btn" href="${p}contact/?t=bridal-consultation#book">Book a bridal consultation</a><a class="btn btn-ghost" href="#packages">See the packages</a></div>
+    </div>
+    <figure class="t-hero-img">${pic('bridal-lace-dress-getting-ready', 'A friend’s hands fastening the lace back of a bride’s wedding dress', { p, eager: true, sizes: '(max-width: 900px) 100vw, 45vw' })}</figure>
+  </div>
+</section>
+
+<section class="section bridal-intro">
+  <div class="wrap bi-grid">
+    <div class="prose">
+      <p>At Beauty Medical Clinic, we offer personalized aesthetic treatments designed to enhance your natural beauty, refresh your appearance and help you feel confident for every special moment.</p>
+      <p>Whether you’re dreaming of glowing skin, a subtle refresh or a more personalized beauty plan, we’re here to help you prepare for the celebration.</p>
+    </div>
+    <div>
+      <blockquote class="bi-quote"><p>Our philosophy is simple: <em>less is more.</em> Natural beauty comes first.</p></blockquote>
+      <a class="bi-by" href="${p}about/">${pic('rebecca-victoria-adam-rn', '', { p, sizes: '64px' })}<span><b>${F.owner}, RN</b>Certified Aesthetic Injector · plans and performs every bridal treatment herself</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section planner" id="planner">
+  <div class="wrap">
+    <div class="sec-head"><p class="mono eyebrow">Your bridal beauty timeline</p><h2>When should you start preparing?</h2><p>Enter your wedding date to see where you are on the timeline.</p></div>
+    <div class="planner-box" data-planner>
+      <label class="planner-field"><span class="mono">Your wedding date</span><input type="date" data-wedding-date></label>
+      <p class="planner-out" data-planner-out aria-live="polite">The stage you’re in will light up below.</p>
+      <a class="btn btn-sm planner-book" href="${p}contact/?t=bridal-consultation#book" data-planner-book>Book a bridal consultation</a>
+    </div>
+    <ol class="timeline">${stages}</ol>
+    <p class="small muted">Treatment timing is individualized. Some procedures require longer recovery periods, and results cannot be guaranteed by a particular date.</p>
+  </div>
+</section>
+
+<section class="section packages" id="packages">
+  <div class="wrap">
+    <div class="sec-head center"><p class="mono eyebrow">Our exclusive bridal beauty packages</p><h2>Four ways to glow on the day.</h2></div>
+    <div class="invite-grid">${BRIDAL.packages.map(pkg).join('')}</div>
+  </div>
+</section>
+
+<section class="section crew" id="beauty-crew">
+  <div class="wrap crew-grid">
+    <figure class="crew-photo">${pic('bridal-party-robes-champagne', 'Two women in satin robes pouring champagne while getting ready for a wedding', { p, sizes: '(max-width: 900px) 90vw, 45vw' })}</figure>
+    <div>
+      <p class="mono eyebrow">The Beauty Crew</p>
+      <h2>Good friends. Beautiful moments. <em>A little extra glow!</em></h2>
+      <p>Getting ready for a wedding is even more fun when you share the experience with the people you love. Whether it’s your bridesmaids, sisters, moms or closest friends, everyone can enjoy a little extra beauty preparation.</p>
+      <div class="bestie">
+        <h3>Bring your bestie!</h3>
+        <p>Refer a friend or family member who books an eligible full-price treatment, and both of you can enjoy complimentary Celluma LED light therapy with your qualifying appointments.</p>
+        <p>No group bookings required! Everyone can schedule their appointment at their own convenience.</p>
+      </div>
+      <p class="invite-close">Because beautiful moments are even better when shared.</p>
+      <p class="small muted">Available with selected full-price treatments. Cannot be combined with other promotions or packages that already include complimentary LED therapy.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section your-way">
+  <div class="wrap yw-grid">
+    <div>
+      <p class="mono eyebrow">Your beauty, your way</p>
+      <h2>Looking for something more personalized?</h2>
+      <p>Every face is unique. Every beauty goal is personal. Whether you’re considering a subtle refresh or a more comprehensive aesthetic treatment plan, we’ll help you explore options that suit your individual needs, preferences and timeline.</p>
+    </div>
+    <ul class="yw-list">${BRIDAL.more.map(([n, s]) => `<li><a href="${p}${s}/"><span>${n}</span>${icon.arrow}</a></li>`).join('')}</ul>
+  </div>
+  <div class="wrap"><p class="yw-close">Our goal is never to change your face. It’s to help you feel like the best version of yourself.</p></div>
+</section>
+
+<section class="section bridal-cta">
+  <div class="wrap bc-grid">
+    <div>
+      <p class="mono eyebrow">Let’s get you celebration-ready!</p>
+      <h2>Big day. <em>Beautiful you.</em></h2>
+      <p>Your special occasion deserves a personalized approach. With nearly two decades of experience in medical aesthetics, ${F.owner}, RN, Certified Aesthetic Injector, provides individualized care with a focus on safety, natural-looking results and attention to detail.</p>
+      <p>From the beautiful bride to everyone celebrating by her side, we’re here to help you look and feel your best.</p>
+      <div class="hero-actions"><a class="btn" href="${p}contact/?t=bridal-consultation#book">Book your bridal beauty consultation</a><a class="btn btn-ghost" href="${F.tel}">${icon.phone} ${F.phone}</a></div>
+    </div>
+    <figure class="bc-photo">${pic('bride-veil-window-light', 'A smiling bride in an off-shoulder gown and veil, glowing in window light', { p, sizes: '(max-width: 900px) 80vw, 36vw' })}</figure>
+  </div>
+  <div class="wrap"><p class="small muted fine">All treatments are subject to individual consultation and suitability. Results vary. Some treatments require advance planning and recovery time. All prices are in Canadian dollars, before applicable taxes. Packages cannot be combined with other promotions. Complimentary services are subject to eligibility and availability.</p></div>
+</section>`;
+  const ld = [
+    { '@type': 'Service', '@id': SITE + 'bridal-beauty/#service', name: 'Bridal Beauty Collection', serviceType: 'Bridal skin rejuvenation packages', description: 'Personalized pre-wedding skin packages for brides, mothers, bridesmaids and guests at Beauty Medical Clinic in Thornhill: Forma RF, microneedling and Celluma LED light therapy.', url: SITE + 'bridal-beauty/', provider: { '@id': SITE + '#business' }, areaServed: [{ '@type': 'City', name: 'Thornhill' }, { '@type': 'City', name: 'Toronto' }], image: SITE + 'assets/img/bridal-lace-dress-getting-ready.webp',
+      hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Bridal beauty packages', itemListElement: BRIDAL.packages.filter(b => b.price).map(b => ({ '@type': 'Offer', name: b.name, description: b.tag, url: SITE + 'bridal-beauty/#' + b.slug, price: b.price.toFixed(2), priceCurrency: 'CAD', priceSpecification: { '@type': 'PriceSpecification', price: b.price.toFixed(2), priceCurrency: 'CAD', valueAddedTaxIncluded: false }, itemOffered: { '@type': 'Service', name: b.name } })) } },
+    { ...biz, hasOfferCatalog: undefined },
+    crumbs([['Home', ''], ['Bridal Beauty Collection', 'bridal-beauty/']])
+  ];
+  return page({
+    file: 'bridal-beauty/index.html', p, canonical: 'bridal-beauty/', current: 'bridal',
+    title: 'Bridal Beauty Packages in Thornhill | Beauty Medical Clinic',
+    desc: 'Pre-wedding skin packages in Thornhill for brides, moms and bridesmaids: Forma RF, microneedling and LED therapy, from $180. Book a bridal consultation.',
+    ogAlt: 'Bridal Beauty Collection at Beauty Medical Clinic, Thornhill: Big Day. Beautiful You.',
+    ld, body, bodyClass: 'bridal-page'
+  });
+}
+
 /* ───────── ABOUT ───────── */
 function about() {
   const p = '../';
@@ -518,7 +659,7 @@ function contact() {
     <h2>Request an appointment</h2>
     <div class="f2"><label>Your name<input name="name" autocomplete="name" required></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div>
     <label>Email<input name="email" type="email" autocomplete="email" required></label>
-    <label>I’m interested in<select name="treatment"><option value="">Not sure yet / general consultation</option>${CATEGORIES.map(c => `<optgroup label="${c.name}">${T.filter(t => t.cat === c.id).map(t => `<option value="${esc(t.name)}" data-slug="${t.slug}">${t.name}</option>`).join('')}</optgroup>`).join('')}<option value="Training for MDs/RNs">Training (for MDs and RNs)</option></select></label>
+    <label>I’m interested in<select name="treatment"><option value="">Not sure yet / general consultation</option>${CATEGORIES.map(c => `<optgroup label="${c.name}">${T.filter(t => t.cat === c.id).map(t => `<option value="${esc(t.name)}" data-slug="${t.slug}">${t.name}</option>`).join('')}</optgroup>`).join('')}<optgroup label="Bridal Beauty Collection"><option value="Bridal beauty consultation" data-slug="bridal-consultation">Bridal beauty consultation</option>${BRIDAL.packages.map(b => `<option value="Bridal package: ${esc(b.name)}" data-slug="${b.slug}">${b.name}${b.price ? ` ($${b.price})` : ''}</option>`).join('')}</optgroup><option value="Training for MDs/RNs">Training (for MDs and RNs)</option></select></label>
     <fieldset><legend>Best way to reach you</legend><label class="radio"><input type="radio" name="via" value="Phone call" checked> Call</label><label class="radio"><input type="radio" name="via" value="Text message"> Text</label><label class="radio"><input type="radio" name="via" value="Email"> Email</label></fieldset>
     <label>Message<textarea name="message" rows="4" placeholder="Days and times that suit you, or any questions."></textarea></label>
     <p class="small muted">Please don’t include detailed medical history here; Rebecca will go over it with you in person.</p>
@@ -577,12 +718,12 @@ function redirects() {
 }
 
 function sitemap() {
-  const urls = ['', 'services/', 'about/', 'contact/', 'training/', 'privacy-policy/', ...T.map(t => t.slug + '/')];
+  const urls = ['', 'services/', 'bridal-beauty/', 'about/', 'contact/', 'training/', 'privacy-policy/', ...T.map(t => t.slug + '/')];
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}${u}</loc><lastmod>2026-11-11</lastmod></url>`).join('\n')}\n</urlset>\n`);
   fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}sitemap.xml\n`);
 }
 
-home(); services(); about(); training(); contact(); privacy(); notFound();
+home(); services(); bridal(); about(); training(); contact(); privacy(); notFound();
 T.forEach((t, i) => treatment(t, i + 1));
 redirects(); sitemap();
 console.log('built', 7 + T.length, 'pages +', Object.keys(REDIRECTS).length, 'redirects');

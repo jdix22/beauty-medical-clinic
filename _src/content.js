@@ -566,4 +566,55 @@ const REDIRECTS = {
   'hydrofacial': 'services/'
 };
 
-module.exports = { FACTS, CATEGORIES, REVIEWS, ZONES, T, bySlug, REDIRECTS };
+/* ───────────── BRIDAL BEAUTY COLLECTION (Rebecca's copy, 15 Nov 2026) ───────────── */
+const FORMA = '<a href="../radiofrequency-skin-tightening/">Forma RF</a>';
+const MICRO = '<a href="../microneedling/">microneedling</a>';
+const BRIDAL = {
+  packages: [
+    {
+      slug: 'bridal-glow', name: 'The Bridal Glow', price: 180,
+      tag: 'Your glow starts here!',
+      intro: 'A little extra radiance for your special occasion! Perfect for brides, bridesmaids, mothers and wedding guests who want to refresh their appearance without significant downtime.',
+      includes: [`30-minute ${FORMA} facial treatment`, 'Complimentary Celluma LED light therapy', 'Personalized skin consultation'],
+      body: 'Forma RF uses radiofrequency technology to gently heat the skin, supporting collagen remodeling and improving the appearance of skin firmness and texture. Combined with Celluma LED therapy, this treatment offers a non-invasive approach to skin rejuvenation.',
+      close: 'Beautiful skin. Beautiful moments. Beautiful you.'
+    },
+    {
+      slug: 'baby-skin-glow', name: 'Baby Skin Glow', price: null,
+      tag: 'Soft. Smooth. Naturally radiant.',
+      intro: 'Dreaming of that fresh, smooth, glass-skin-inspired look? Baby Skin Glow is a gentle approach to skin rejuvenation, focused on improving the appearance of skin texture and restoring a naturally radiant look.',
+      includes: [`Light, superficial ${MICRO} with a customized treatment depth`, 'Hydrating skincare selected for your skin', 'Soothing post-treatment care', 'Personalized skin consultation'],
+      body: 'Designed for those who want a subtle skin refresh rather than intensive resurfacing.',
+      perfect: 'Brides, bridesmaids, mothers, and anyone looking to improve the appearance of dullness, uneven texture and tired-looking skin.',
+      close: 'Your skin. Only fresher.',
+      note: 'Even superficial microneedling can cause temporary redness, sensitivity or irritation. Advance scheduling before an important event is recommended.'
+    },
+    {
+      slug: 'mother-of-the-occasion', name: 'Mother of the Occasion', price: 350,
+      tag: 'Timeless beauty for unforgettable moments.',
+      intro: 'A little something special for the wonderful women who have been there through it all. Thoughtfully created for mothers of the bride and groom, and perfect for anyone who wants to feel refreshed and radiant for the celebration.',
+      includes: [`Two 30-minute ${FORMA} facial treatments`, 'Complimentary Celluma LED therapy with each session', 'Personalized skin consultation'],
+      body: 'Designed to support smoother-looking, firmer and more refreshed skin through gentle, non-invasive treatments.',
+      close: 'Because elegance never goes out of style.'
+    },
+    {
+      slug: 'picture-perfect', name: 'Picture Perfect', price: 449,
+      tag: 'Every beautiful moment deserves to be remembered.',
+      intro: 'For those who want to give their skin a little extra attention before the cameras start clicking. Picture Perfect combines professional skin rejuvenation treatments to help improve the appearance of skin texture, firmness and radiance.',
+      includes: [`One professional ${MICRO} treatment`, `One 30-minute ${FORMA} facial treatment`, 'Complimentary Celluma LED light therapy', 'Personalized treatment planning'],
+      perfect: 'Clients who want to address uneven skin texture, dullness and early signs of aging.',
+      close: 'A little preparation. A lot of confidence.',
+      note: 'Recommended for clients who can begin their beauty preparation well in advance of the wedding. Treatments are scheduled separately, with appropriate intervals and recovery time.'
+    }
+  ],
+  // Her bridal timeline. min/max are days before the wedding the planner uses to light up a stage.
+  timeline: [
+    { when: '3–6 months before', min: 63, text: 'A great time to discuss your skin concerns, explore treatment options and create a personalized beauty plan.' },
+    { when: '4–8 weeks before', min: 28, text: 'Depending on your skin and treatment goals, this may be an appropriate time for selected skin rejuvenation treatments that require recovery or multiple appointments.' },
+    { when: '1–2 weeks before', min: 7, text: 'Focus on familiar, gentle treatments that your skin has previously tolerated well. Avoid experimenting with aggressive or unfamiliar procedures close to the event.' },
+    { when: 'Wedding week', min: 0, text: 'Keep your skincare routine simple, gentle and focused on hydration and comfort.' }
+  ],
+  more: [['Botox and Dysport', 'botox-dysport'], ['Dermal fillers', 'dermal-fillers'], ['Skin boosters', 'skin-boosters'], ['Mesotherapy', 'mesotherapy'], ['Professional microneedling', 'microneedling'], ['Forma RF skin rejuvenation', 'radiofrequency-skin-tightening'], ['Personalized facial treatments', 'salt-and-silk-facial']]
+};
+
+module.exports = { FACTS, CATEGORIES, REVIEWS, ZONES, T, bySlug, REDIRECTS, BRIDAL };

@@ -90,11 +90,55 @@
     rv.forEach(n => { if (n.getBoundingClientRect().top > innerHeight) { n.classList.add('rv'); io.observe(n); } });
   }
 
+  // Bridal planner: wedding date -> light up the stage of Rebecca's timeline, carry the date to booking
+  const planner = $('[data-planner]');
+  const longDate = iso => new Date(iso + 'T12:00').toLocaleDateString('en-CA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  if (planner) {
+    const input = $('[data-wedding-date]', planner), out = $('[data-planner-out]', planner), book = $('[data-planner-book]', planner);
+    const stages = $$('.tl-stage');
+    const local = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    const noon = () => { const d = new Date(); d.setHours(12, 0, 0, 0); return d; };
+    const later = noon(); later.setFullYear(later.getFullYear() + 3);
+    input.min = local(noon()); input.max = local(later);
+    // Every booking link on the page (package buttons, header, mobile dock, drawer) carries the date once it's set
+    const bookLinks = $$('a[href*="contact/"]').filter(a => a.getAttribute('href').includes('#book'));
+    bookLinks.forEach(a => { const h = a.getAttribute('href'); a.dataset.base = h.includes('?t=') ? h : h.replace('contact/#book', 'contact/?t=bridal-consultation#book'); a.dataset.orig = h; });
+    const reset = msg => { stages.forEach(s => { s.classList.remove('on', 'done'); s.removeAttribute('aria-current'); }); out.textContent = msg; bookLinks.forEach(a => a.setAttribute('href', a.dataset.orig)); book.textContent = 'Book a bridal consultation'; };
+    const update = () => {
+      const v = input.value, m = /^(\d{4})-\d{2}-\d{2}$/.exec(v);
+      if (!v) return reset('The stage you’re in will light up below.');
+      if (!m || +m[1] < new Date().getFullYear()) return; // still typing the year
+      const days = Math.round((new Date(v + 'T12:00') - noon()) / 864e5);
+      if (isNaN(days)) return;
+      if (days < 0) return reset('That date has already passed. Congratulations!');
+      if (days > 1100) return reset('That’s more than three years away. Book a consultation whenever you’re ready to start planning.');
+      const i = stages.findIndex(s => days >= +s.dataset.min);
+      stages.forEach((s, j) => { s.classList.toggle('done', j < i); s.classList.toggle('on', j === i); if (j === i) s.setAttribute('aria-current', 'step'); else s.removeAttribute('aria-current'); });
+      const weeks = Math.floor(days / 7);
+      const when = days === 0 ? 'Your wedding is today!' : days < 28 ? `Your wedding is in ${days} day${days === 1 ? '' : 's'}.` : `Your wedding is in ${weeks} weeks.`;
+      const label = stages[i].querySelector('.tl-when').textContent.toLowerCase();
+      const tips = [
+        days > 183 ? 'You have plenty of time. Start with a consultation whenever you’re ready to build your plan.' : 'A great time to book your consultation and plan your treatments.',
+        'A good window for treatments that need recovery or more than one appointment.',
+        'Time for familiar, gentle treatments your skin already knows. Packages that need advance planning, like Picture Perfect and Baby Skin Glow, are best started earlier.',
+        'Keep it simple, gentle and hydrating this week.'
+      ];
+      out.innerHTML = `<b>${when}</b> Closest stage: ${label}. ${tips[i]}`;
+      bookLinks.forEach(a => { const [path, hash] = a.dataset.base.split('#'); a.setAttribute('href', `${path}&date=${v}${hash ? '#' + hash : ''}`); });
+      if (days < 7) { book.textContent = 'Call Rebecca'; book.setAttribute('href', 'tel:+14167285697'); }
+      else { book.textContent = 'Book a bridal consultation'; }
+    };
+    input.addEventListener('change', update); input.addEventListener('input', update);
+  }
+
   // Contact form: preselect treatment from ?t=slug, then send by email (or FORM_ENDPOINT)
   const form = $('[data-form]');
   if (form) {
-    const want = new URLSearchParams(location.search).get('t');
+    const qs = new URLSearchParams(location.search);
+    const want = qs.get('t');
     if (want) { const o = $(`option[data-slug="${CSS.escape(want)}"]`, form); if (o) o.selected = true; }
+    const wedding = qs.get('date');
+    if (wedding && /^\d{4}-\d{2}-\d{2}$/.test(wedding) && form.message && !form.message.value) form.message.value = `Wedding date: ${longDate(wedding)}.\n`;
     const msg = $('[data-form-msg]');
     form.addEventListener('submit', async e => {
       e.preventDefault();

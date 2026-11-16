@@ -93,3 +93,18 @@ Run `node _src/build.js` to regenerate every page. Social image: `_src/og.html` 
 
 Shown everywhere as **Rebecca Victoria Adam** (full name) or **Rebecca** (short), per her request on
 11 Nov 2026. Client reviews are quoted word for word, so the reviews that say "Victoria" are unchanged.
+
+## Point of view: Bridal Beauty Collection page (added 15 Nov 2026)
+
+- **Who she is to them:** the calm, experienced nurse-artist a bride (and her mom and bridesmaids)
+  trusts to make them look rested and like themselves on the day. Never "a different face".
+- **What they worry about:** timing ("is it too late?", "will I be red in photos?"), price, and
+  looking overdone. They want a plan that fits the date and the whole party.
+- **Guiding word:** *timing*. Everything on the page helps people start at the right moment.
+- **Signature detail:** a wedding-date countdown. Enter the date and her own bridal timeline lights
+  up the stage you're in, then the booking form opens with the wedding date already filled in.
+  Packages are shown as wedding-stationery cards (thin gold double frame), not a price list.
+- **Must not look like:** a discount spa flyer or a coupon page. Keep the clinic's editorial calm.
+
+Copy is Rebecca's own (sent 15 Nov 2026), lightly trimmed. Prices: Bridal Glow $180,
+Mother of the Occasion $350, Picture Perfect $449, Baby Skin Glow price to be announced.
