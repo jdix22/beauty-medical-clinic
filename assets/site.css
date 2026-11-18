@@ -678,3 +678,5 @@ ul:not(.ticks).cols li{padding:3px 0}
   .tl-stage,.tl-stage.on{padding:14px 18px 18px 36px;transform:none}
   .tl-dot,.tl-stage.on .tl-dot{top:16px}
 }
+.bridal-hero .t-hero-img img{object-position:50% 30%}
+.bt-photo img{object-position:50% 25%}

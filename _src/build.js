@@ -287,7 +287,7 @@ function home() {
 
 <section class="section bridal-teaser">
   <div class="wrap bt-grid">
-    <figure class="bt-photo">${pic('bridal-lace-dress-getting-ready', 'A friend’s hands fastening the lace back of a bride’s wedding dress', { sizes: '(max-width: 900px) 90vw, 45vw' })}</figure>
+    <figure class="bt-photo">${pic('bride-with-mothers-and-bridesmaids', 'A smiling bride in a lace gown surrounded by her mothers and bridesmaids in black dresses', { sizes: '(max-width: 900px) 90vw, 45vw' })}</figure>
     <div class="bt-copy">
       <p class="mono eyebrow">Bridal Beauty Collection</p>
       <h2>Big day. <em>Beautiful you.</em></h2>
@@ -466,7 +466,7 @@ function bridal() {
       <p class="lede">Every wedding is a celebration of love, beauty and unforgettable moments. From the beautiful bride to the mothers, bridesmaids and everyone sharing in the celebration, we believe everyone deserves to look and feel their best.</p>
       <div class="hero-actions"><a class="btn" href="${p}contact/?t=bridal-consultation#book">Book a bridal consultation</a><a class="btn btn-ghost" href="#packages">See the packages</a></div>
     </div>
-    <figure class="t-hero-img">${pic('bridal-lace-dress-getting-ready', 'A friend’s hands fastening the lace back of a bride’s wedding dress', { p, eager: true, sizes: '(max-width: 900px) 100vw, 45vw' })}</figure>
+    <figure class="t-hero-img">${pic('bride-with-mothers-and-bridesmaids', 'A smiling bride in a lace gown surrounded by her mothers and bridesmaids in black dresses', { p, eager: true, sizes: '(max-width: 900px) 100vw, 45vw' })}</figure>
   </div>
 </section>
 
@@ -547,7 +547,7 @@ function bridal() {
   <div class="wrap"><p class="small muted fine">All treatments are subject to individual consultation and suitability. Results vary. Some treatments require advance planning and recovery time. All prices are in Canadian dollars, before applicable taxes. Packages cannot be combined with other promotions. Complimentary services are subject to eligibility and availability.</p></div>
 </section>`;
   const ld = [
-    { '@type': 'Service', '@id': SITE + 'bridal-beauty/#service', name: 'Bridal Beauty Collection', serviceType: 'Bridal skin rejuvenation packages', description: 'Personalized pre-wedding skin packages for brides, mothers, bridesmaids and guests at Beauty Medical Clinic in Thornhill: Forma RF, microneedling and Celluma LED light therapy.', url: SITE + 'bridal-beauty/', provider: { '@id': SITE + '#business' }, areaServed: [{ '@type': 'City', name: 'Thornhill' }, { '@type': 'City', name: 'Toronto' }], image: SITE + 'assets/img/bridal-lace-dress-getting-ready.webp',
+    { '@type': 'Service', '@id': SITE + 'bridal-beauty/#service', name: 'Bridal Beauty Collection', serviceType: 'Bridal skin rejuvenation packages', description: 'Personalized pre-wedding skin packages for brides, mothers, bridesmaids and guests at Beauty Medical Clinic in Thornhill: Forma RF, microneedling and Celluma LED light therapy.', url: SITE + 'bridal-beauty/', provider: { '@id': SITE + '#business' }, areaServed: [{ '@type': 'City', name: 'Thornhill' }, { '@type': 'City', name: 'Toronto' }], image: SITE + 'assets/img/bride-with-mothers-and-bridesmaids.webp',
       hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Bridal beauty packages', itemListElement: BRIDAL.packages.filter(b => b.price).map(b => ({ '@type': 'Offer', name: b.name, description: b.tag, url: SITE + 'bridal-beauty/#' + b.slug, price: b.price.toFixed(2), priceCurrency: 'CAD', priceSpecification: { '@type': 'PriceSpecification', price: b.price.toFixed(2), priceCurrency: 'CAD', valueAddedTaxIncluded: false }, itemOffered: { '@type': 'Service', name: b.name } })) } },
     { ...biz, hasOfferCatalog: undefined },
     crumbs([['Home', ''], ['Bridal Beauty Collection', 'bridal-beauty/']])
