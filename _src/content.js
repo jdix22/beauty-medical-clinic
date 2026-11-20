@@ -418,13 +418,13 @@ T.push({
 T.push({
   slug: 'sclerotherapy', cat: 'body',
   name: 'Sclerotherapy (Spider Veins)', short: 'Sclerotherapy',
-  h1: 'Spider Vein Treatment <span class="t-loc">(sclerotherapy) in Thornhill &amp; Vaughan</span>',
-  aka: ['Spider vein treatment', 'Spider vein removal', 'Leg vein treatment'],
-  title: 'Spider Vein Treatment in Thornhill and Vaughan | Sclerotherapy',
-  desc: 'Spider vein treatment in Thornhill and Vaughan: sclerotherapy for spider and small leg veins by an RN who teaches it to doctors. Call 416-728-5697.',
+  h1: 'Spider Veins Treatment <span class="t-loc">(sclerotherapy) in Thornhill &amp; Vaughan</span>',
+  aka: ['spider veins treatment', 'Spider veins removal', 'Leg vein treatment'],
+  title: 'Spider Veins Treatment in Thornhill and Vaughan | Sclerotherapy',
+  desc: 'spider veins treatment in Thornhill and Vaughan: sclerotherapy for spider and small leg veins by an RN who teaches it to doctors. Call 416-728-5697.',
   img: 'sclerotherapy-smooth-legs', imgAlt: 'A woman’s smooth, bare legs crossed on a white background',
   card: 'Clears spider and small leg veins. Compression stockings fitted in-clinic.',
-  lede: 'Spider vein treatment here means sclerotherapy, which clears spider veins and small (reticular) leg veins with micro-injections. A sclerosing solution is placed in the vein through a very fine needle; it irritates the lining so the vein closes, scars down and fades away. Many veins can be treated in one visit.',
+  lede: 'spider veins treatment here means sclerotherapy, which clears spider veins and small (reticular) leg veins with micro-injections. A sclerosing solution is placed in the vein through a very fine needle; it irritates the lining so the vein closes, scars down and fades away. Many veins can be treated in one visit.',
   facts: [['Session', 'About 60 minutes'], ['Typical course', '3–5 sessions (2–3 if mild)'], ['Anesthesia', 'Usually not needed'], ['Bruising fades', '10–14 days']],
   sections: [
     { h: 'Why come to Rebecca for veins', html: `<p>Rebecca has taught sclerotherapy to doctors and registered nurses for more than ten years. Spider veins are the treatment her Google reviewers mention most. One client, after years of hiding her legs, wrote that she can’t believe she will wear dresses again.</p>` },
@@ -441,7 +441,7 @@ T.push({
     ['Can it treat large varicose veins?', 'Sclerotherapy is for small and medium veins near the surface. Large varicose veins need much more solution and a stronger formula, and are better assessed separately.'],
     ['Can veins on the face or hands be treated?', 'No. Sclerotherapy should never be used on the hands, and it is not the right treatment for veins on the face.'],
     ['What do I need to do after?', 'Wear compression stockings (24 hours the first day, then for a week), walk as normal, and skip intense sport for 5–7 days.'],
-    ['Where can I get spider vein treatment in Vaughan?', 'At Beauty Medical Clinic, 7131 Bathurst St., Unit 103, Thornhill (Bathurst & Steeles), in the City of Vaughan. It is a short drive from Richmond Hill and North York. Call or text 416-728-5697 to book.']
+    ['Where can I get spider veins treatment in Vaughan?', 'At Beauty Medical Clinic, 7131 Bathurst St., Unit 103, Thornhill (Bathurst & Steeles), in the City of Vaughan. It is a short drive from Richmond Hill and North York. Call or text 416-728-5697 to book.']
   ],
   gallery: [['compression-stockings', 'A range of compression stockings: knee socks, thigh-highs and pantyhose', 'Compression stockings, fitted in-clinic']],
   quotes: [['I had my spider veins removed by Victoria. She did an amazing job! She is very skilled and attentive.', 'Stella I.'], ['I can’t wait to wear shorts in the summer now that Victoria has cleared all my spider veins.', 'Kathryn K.']],
