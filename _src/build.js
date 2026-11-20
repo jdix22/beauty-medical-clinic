@@ -7,7 +7,7 @@ const ROOT = path.join(__dirname, '..');
 // Live on beautymedical.ca (Cloudflare Worker). The GitHub Pages copy points its canonical here.
 const SITE = 'https://beautymedical.ca/';
 const NOINDEX = false;
-const VERSION = '5';
+const VERSION = '6';
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const img = (name, alt, w, h, o = {}) => `<img src="${o.p || ''}assets/img/${name}.webp" alt="${esc(alt)}" width="${w}" height="${h}"${o.eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${o.cls ? ` class="${o.cls}"` : ''}${o.sizes ? ` sizes="${o.sizes}"` : ''}${o.srcset ? ` srcset="${o.srcset}"` : ''}>`;
@@ -101,6 +101,7 @@ function footer(p) {
 </nav>`;
 }
 
+const AREAS = [{ '@type': 'Place', name: 'Thornhill, Ontario' }, { '@type': 'City', name: 'Vaughan' }, { '@type': 'City', name: 'Richmond Hill' }, { '@type': 'Place', name: 'North York, Toronto' }];
 const biz = {
   '@type': 'MedicalClinic',
   '@id': SITE + '#business',
@@ -113,7 +114,8 @@ const biz = {
   image: SITE + 'assets/og.png',
   logo: SITE + 'assets/logo.png',
   address: { '@type': 'PostalAddress', streetAddress: F.street, addressLocality: F.city, addressRegion: F.region, postalCode: F.postal, addressCountry: 'CA' },
-  areaServed: [{ '@type': 'City', name: 'Thornhill' }, { '@type': 'City', name: 'Toronto' }],
+  areaServed: AREAS,
+  hasMap: F.mapsUrl,
   founder: { '@id': SITE + '#victoria' },
   hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Treatments', itemListElement: T.map(t => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: t.name, url: SITE + t.slug + '/' } })) }
 };
@@ -209,6 +211,7 @@ function home() {
   const homeFaq = [
     ['Who performs the treatments?', 'Rebecca Victoria Adam, a Registered Nurse and Certified Advanced Cosmetic Injector with more than 30 years in medicine. She also trains doctors and nurses in Botox, dermal fillers and sclerotherapy.'],
     ['Where is Beauty Medical Clinic?', 'In the Medical Arts building at 7131 Bathurst St., Unit 103, Thornhill, ON L4J 7Z1, near Steeles Ave and Bathurst St.'],
+    ['Is the clinic close to Vaughan, Richmond Hill and North York?', 'Yes. The clinic is at Bathurst & Steeles, where Thornhill (part of the City of Vaughan) meets North York, and Richmond Hill is a straight drive south down Bathurst Street.'],
     ['How do I book?', 'Call or text 416-728-5697, message on WhatsApp, email info@beautymedicalclinic.com, or send the request form on the contact page.'],
     ['How long does Botox last?', 'Usually three to five months. Results start within a few days and peak at about two weeks.'],
     ['Will I look “done”?', 'No. Rebecca’s reputation rests on natural, youthful results. Clients often mention that she prefers to under-treat rather than over-treat.'],
@@ -345,8 +348,8 @@ ${visit(p)}
 `;
   return page({
     file: 'index.html', p, canonical: '',
-    title: 'Beauty Medical Clinic | Botox, Fillers & Anti-Aging, Thornhill',
-    desc: 'Non-surgical anti-aging in Thornhill: Botox, fillers, microneedling, spider veins, BodyFX and hair loss treatment by RN injector Rebecca Victoria Adam. Book today.',
+    title: 'Beauty Medical Clinic | Botox & Fillers, Thornhill & Vaughan',
+    desc: 'Non-surgical anti-aging in Thornhill for Vaughan, Richmond Hill and North York: Botox, fillers, spider veins, Forma and more by RN Rebecca Victoria Adam.',
     ld: [biz, person, website, ...faqLd(homeFaq)], body, bodyClass: 'home'
   });
 }
@@ -357,6 +360,7 @@ function visit(p) {
     <div class="visit-copy">
       <p class="mono eyebrow">Visit the clinic</p>
       <h2>Bathurst &amp; Steeles, in the Medical Arts building.</h2>
+      <p class="visit-area">Where Thornhill meets North York, a short drive from anywhere in Vaughan and Richmond Hill.</p>
       <dl class="vdl">
         <div><dt>${icon.pin} Address</dt><dd>${F.building}<br>${F.street}<br>${F.city}, ${F.region} ${F.postal}</dd></div>
         <div><dt>${icon.phone} Phone &amp; text</dt><dd><a href="${F.tel}">${F.phone}</a></dd></div>
@@ -381,7 +385,7 @@ function treatment(t, idx) {
   <div class="wrap t-hero-grid">
     <div>
       <nav class="crumbs mono" aria-label="Breadcrumb"><a href="${p}">Home</a> / <a href="${p}services/">Treatments</a> / <span>${cat.name}</span></nav>
-      <h1>${t.name}<span class="t-loc"> in Thornhill</span></h1>
+      <h1>${t.h1 || `${t.name}<span class="t-loc"> in Thornhill &amp; Vaughan</span>`}</h1>
       <p class="lede">${t.lede}</p>
       <div class="hero-actions"><a class="btn" href="${p}contact/?t=${t.slug}#book">Book a consultation</a><a class="btn btn-ghost" href="${F.tel}">${icon.phone} ${F.phone}</a></div>
     </div>
@@ -406,7 +410,7 @@ function treatment(t, idx) {
 ${ctaBand(p, `Talk to Rebecca about ${t.short.toLowerCase()}.`)}
 `;
   const ld = [
-    { '@type': 'Service', '@id': SITE + t.slug + '/#service', name: t.name, serviceType: t.name, description: t.lede, url: SITE + t.slug + '/', provider: { '@id': SITE + '#business' }, areaServed: [{ '@type': 'City', name: 'Thornhill' }, { '@type': 'City', name: 'Toronto' }], image: SITE + 'assets/img/' + t.img + '.webp' },
+    { '@type': 'Service', '@id': SITE + t.slug + '/#service', name: t.name, ...(t.aka ? { alternateName: t.aka } : {}), serviceType: t.name, description: t.lede, url: SITE + t.slug + '/', provider: { '@id': SITE + '#business' }, areaServed: AREAS, image: SITE + 'assets/img/' + t.img + '.webp' },
     { ...biz, hasOfferCatalog: undefined },
     crumbs([['Home', ''], ['Treatments', 'services/'], [t.name, t.slug + '/']]),
     ...faqLd(t.faq)
@@ -421,7 +425,7 @@ function services() {
   const body = `
 <section class="p-hero"><div class="wrap">
   <nav class="crumbs mono" aria-label="Breadcrumb"><a href="${p}">Home</a> / <span>Treatments</span></nav>
-  <h1>Non-surgical treatments in Thornhill</h1>
+  <h1>Non-surgical treatments in Thornhill &amp; Vaughan</h1>
   <p class="lede">Fifteen treatments to tackle the signs of aging on several levels: lines and volume, skin quality, the body and the hair. Not sure which you need? That is exactly what a consultation is for.</p>
 </div></section>
 ${CATEGORIES.map(c => `<section class="section cat-sec" id="${c.id}"><div class="wrap"><div class="sec-head row"><h2>${c.name}</h2><p>${c.blurb}</p></div>
@@ -429,8 +433,8 @@ ${CATEGORIES.map(c => `<section class="section cat-sec" id="${c.id}"><div class=
 ${ctaBand(p)}`;
   return page({
     file: 'services/index.html', p, canonical: 'services/', current: 'services',
-    title: 'Treatments | Beauty Medical Clinic, Thornhill',
-    desc: 'All treatments at Beauty Medical Clinic in Thornhill: Botox, fillers, lips, microneedling, PRP, peels, Forma, BodyFX, Endospheres, sclerotherapy and hair.',
+    title: 'Treatments in Thornhill & Vaughan | Beauty Medical Clinic',
+    desc: 'Treatments in Thornhill for Vaughan, Richmond Hill and North York: Botox, fillers, lips, microneedling, PRP, Forma, BodyFX, spider veins and hair loss.',
     ld: [{ ...biz }, crumbs([['Home', ''], ['Treatments', 'services/']])], body
   });
 }
@@ -547,7 +551,7 @@ function bridal() {
   <div class="wrap"><p class="small muted fine">All treatments are subject to individual consultation and suitability. Results vary. Some treatments require advance planning and recovery time. All prices are in Canadian dollars, before applicable taxes. Packages cannot be combined with other promotions. Complimentary services are subject to eligibility and availability.</p></div>
 </section>`;
   const ld = [
-    { '@type': 'Service', '@id': SITE + 'bridal-beauty/#service', name: 'Bridal Beauty Collection', serviceType: 'Bridal skin rejuvenation packages', description: 'Personalized pre-wedding skin packages for brides, mothers, bridesmaids and guests at Beauty Medical Clinic in Thornhill: Forma RF, microneedling and Celluma LED light therapy.', url: SITE + 'bridal-beauty/', provider: { '@id': SITE + '#business' }, areaServed: [{ '@type': 'City', name: 'Thornhill' }, { '@type': 'City', name: 'Toronto' }], image: SITE + 'assets/img/bride-with-mothers-and-bridesmaids.webp',
+    { '@type': 'Service', '@id': SITE + 'bridal-beauty/#service', name: 'Bridal Beauty Collection', serviceType: 'Bridal skin rejuvenation packages', description: 'Personalized pre-wedding skin packages for brides, mothers, bridesmaids and guests at Beauty Medical Clinic in Thornhill: Forma RF, microneedling and Celluma LED light therapy.', url: SITE + 'bridal-beauty/', provider: { '@id': SITE + '#business' }, areaServed: AREAS, image: SITE + 'assets/img/bride-with-mothers-and-bridesmaids.webp',
       hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Bridal beauty packages', itemListElement: BRIDAL.packages.filter(b => b.price).map(b => ({ '@type': 'Offer', name: b.name, description: b.tag, url: SITE + 'bridal-beauty/#' + b.slug, price: b.price.toFixed(2), priceCurrency: 'CAD', priceSpecification: { '@type': 'PriceSpecification', price: b.price.toFixed(2), priceCurrency: 'CAD', valueAddedTaxIncluded: false }, itemOffered: { '@type': 'Service', name: b.name } })) } },
     { ...biz, hasOfferCatalog: undefined },
     crumbs([['Home', ''], ['Bridal Beauty Collection', 'bridal-beauty/']])
@@ -672,6 +676,7 @@ function contact() {
       <div><dt>${icon.wa} WhatsApp</dt><dd><a href="${F.whatsapp}" rel="noopener" target="_blank">Chat on WhatsApp</a></dd></div>
       <div><dt>${icon.mail} Email</dt><dd><a href="mailto:${F.email}">${F.email}</a></dd></div>
       <div><dt>${icon.pin} Address</dt><dd>${F.building}<br>${F.street}<br>${F.city}, ${F.region} ${F.postal}<br><span class="muted">Main intersection: ${F.intersection}</span></dd></div>
+      <div><dt>${icon.pin} Getting here</dt><dd><b>From North York:</b> north on Bathurst St., just past Steeles Ave.<br><b>From Vaughan:</b> east along Steeles Ave. or Centre St. to Bathurst St.<br><b>From Richmond Hill:</b> south on Bathurst St. to Steeles Ave.</dd></div>
     </dl>
     <div class="map"><iframe title="Map showing Beauty Medical Clinic at 7131 Bathurst St, Thornhill" src="${F.mapsEmbed}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     <figure>${pic('medical-arts-centre-7131-bathurst', 'The Medical Arts building at 7131 Bathurst Street, Thornhill', { p, sizes: '(max-width: 800px) 90vw, 40vw' })}<figcaption class="mono">Look for the Medical Arts sign on Bathurst St.</figcaption></figure>
@@ -679,8 +684,8 @@ function contact() {
 </div></section>`;
   return page({
     file: 'contact/index.html', p, canonical: 'contact/', current: 'contact',
-    title: 'Contact & Book | Beauty Medical Clinic, Thornhill',
-    desc: 'Book at Beauty Medical Clinic, 7131 Bathurst St., Unit 103, Thornhill (Bathurst & Steeles). Call or text 416-728-5697, WhatsApp, or email the clinic.',
+    title: 'Contact & Book | Beauty Medical Clinic, Thornhill & Vaughan',
+    desc: 'Book at 7131 Bathurst St., Unit 103, Thornhill (Bathurst & Steeles), close to Vaughan, Richmond Hill and North York. Call or text 416-728-5697.',
     ld: [{ '@type': 'ContactPage', url: SITE + 'contact/', about: { '@id': SITE + '#business' } }, { ...biz, hasOfferCatalog: undefined }, crumbs([['Home', ''], ['Contact', 'contact/']])], body
   });
 }
@@ -719,8 +724,8 @@ function redirects() {
 
 function sitemap() {
   const urls = ['', 'services/', 'bridal-beauty/', 'about/', 'contact/', 'training/', 'privacy-policy/', ...T.map(t => t.slug + '/')];
-  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}${u}</loc><lastmod>2026-11-11</lastmod></url>`).join('\n')}\n</urlset>\n`);
-  fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}sitemap.xml\n`);
+  fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}${u}</loc><lastmod>${new Date().toLocaleDateString("en-CA")}</lastmod></url>`).join('\n')}\n</urlset>\n`);
+  fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\n\n# Search and AI answer crawlers are welcome (ChatGPT, Perplexity, Claude, Google, Bing)\nUser-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: GPTBot\nUser-agent: PerplexityBot\nUser-agent: Claude-SearchBot\nUser-agent: Claude-User\nUser-agent: Googlebot\nUser-agent: Bingbot\nAllow: /\n\nSitemap: ${SITE}sitemap.xml\n`);
 }
 
 home(); services(); bridal(); about(); training(); contact(); privacy(); notFound();

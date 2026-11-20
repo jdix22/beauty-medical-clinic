@@ -680,3 +680,6 @@ ul:not(.ticks).cols li{padding:3px 0}
 }
 .bridal-hero .t-hero-img img{object-position:50% 30%}
 .bt-photo img{object-position:50% 25%}
+
+/* Areas served line (v6) */
+.visit-area{color:var(--ink-2);font-weight:300;margin:-6px 0 22px;max-width:44ch}

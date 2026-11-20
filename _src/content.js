@@ -24,7 +24,8 @@ const FACTS = {
   mapsEmbed: 'https://maps.google.com/maps?q=7131%20Bathurst%20St%2C%20Thornhill%2C%20ON%20L4J%207Z1&z=15&output=embed',
   googleRating: 'Excellent',
   googleCount: 40,
-  about: 'Beauty Medical Clinic is a non-surgical anti-aging clinic in Thornhill, Ontario, led by Registered Nurse and Certified Advanced Cosmetic Injector Rebecca Victoria Adam, who has more than 30 years in medicine and trains doctors and nurses in Botox, dermal fillers and sclerotherapy.'
+  areas: ['Thornhill', 'Vaughan', 'Richmond Hill', 'North York'],
+  about: 'Beauty Medical Clinic is a non-surgical anti-aging clinic in Thornhill, Ontario, serving Vaughan, Richmond Hill and North York, led by Registered Nurse and Certified Advanced Cosmetic Injector Rebecca Victoria Adam, who has more than 30 years in medicine and trains doctors and nurses in Botox, dermal fillers and sclerotherapy.'
 };
 
 const CATEGORIES = [
@@ -68,7 +69,7 @@ const T = [];
 T.push({
   slug: 'botox-dysport', cat: 'injectables',
   name: 'Botox & Dysport', short: 'Botox & Dysport',
-  title: 'Botox & Dysport in Thornhill | Beauty Medical Clinic',
+  title: 'Botox & Dysport in Thornhill & Vaughan | Beauty Medical Clinic',
   desc: 'Botox and Dysport for frown lines, forehead lines and crow’s feet in Thornhill. About 10 minutes, no downtime, by an RN injector. Call 416-728-5697.',
   img: 'botox-frown-line-injection', imgAlt: 'A gloved injector placing a fine-needle injection between a relaxed woman’s brows to soften frown lines',
   card: 'Softens frown lines, forehead lines and crow’s feet. About 10 minutes, no downtime.',
@@ -108,7 +109,7 @@ T.push({
 T.push({
   slug: 'dermal-fillers', cat: 'injectables',
   name: 'Dermal Fillers', short: 'Dermal fillers',
-  title: 'Dermal Fillers in Thornhill | Beauty Medical Clinic',
+  title: 'Dermal Fillers in Thornhill & Vaughan | Beauty Medical Clinic',
   desc: 'Hyaluronic acid fillers for cheeks, lips, chin, jawline and smile lines in Thornhill. Natural, results you see right away. Book with Rebecca Victoria Adam, RN.',
   img: 'dermal-filler-lip-injection', imgAlt: 'An injector placing dermal filler with a fine needle',
   card: 'Hyaluronic acid to restore volume and sculpt cheeks, chin, jaw and folds. Results right away.',
@@ -150,7 +151,7 @@ T.push({
 T.push({
   slug: 'your-perfect-lips', cat: 'injectables',
   name: 'Lip Fillers', short: 'Lip fillers',
-  title: 'Natural Lip Fillers in Thornhill | Beauty Medical Clinic',
+  title: 'Lip Fillers in Thornhill & Vaughan | Beauty Medical Clinic',
   desc: 'Natural-looking lip fillers in Thornhill with hyaluronic acid that can be reversed. Conservative, tailored to your face. Call or text 416-728-5697.',
   img: 'lip-filler-injection', imgAlt: 'Close-up of a fine needle placing hyaluronic acid filler in the lip',
   card: 'A conservative, natural plump with reversible hyaluronic acid. Lasts about 6–12 months.',
@@ -180,7 +181,7 @@ T.push({
 T.push({
   slug: 'cinderella-facelift', cat: 'injectables',
   name: 'Cinderella Facelift & Lips', short: 'Cinderella facelift',
-  title: 'Cinderella Facelift & Cinderella Lips in Thornhill',
+  title: 'Cinderella Facelift & Lips in Thornhill & Vaughan',
   desc: 'Cinderella lips and facelift in Thornhill: a temporary saline plump that lasts one evening. Try a fuller look before fillers. Call 416-728-5697.',
   img: 'cinderella-facelift-glow', imgAlt: 'A woman with smooth, glowing skin and softly defined cheeks',
   card: 'A saline “try before you buy” plump for lips or cheeks that lasts one evening.',
@@ -207,7 +208,7 @@ T.push({
 T.push({
   slug: 'skin-boosters', cat: 'injectables',
   name: 'Skin Boosters', short: 'Skin boosters',
-  title: 'Restylane Skinboosters in Thornhill | Beauty Medical Clinic',
+  title: 'Restylane Skinboosters in Thornhill & Vaughan',
   desc: 'Restylane Skinboosters in Thornhill: hyaluronic acid micro-injections that hydrate the face, neck, hands and décolletage. Book with Rebecca Victoria Adam, RN.',
   img: 'skin-boosters-hydration', imgAlt: 'A woman with dewy, hydrated skin surrounded by a splash of water',
   card: 'Micro-injections of hyaluronic acid that hydrate skin from within. Face, neck, hands.',
@@ -228,7 +229,7 @@ T.push({
 T.push({
   slug: 'microneedling', cat: 'skin',
   name: 'Microneedling', short: 'Microneedling',
-  title: 'Microneedling for Acne Scars & Pores in Thornhill',
+  title: 'Microneedling for Acne Scars in Thornhill & Vaughan',
   desc: 'Microneedling (collagen induction therapy) in Thornhill for acne scars, large pores, stretch marks and wrinkles. Safe for more skin tones than many lasers.',
   img: 'microneedling-pen-treatment', imgAlt: 'A microneedling pen being glided across a client’s cheek',
   card: 'Collagen induction for acne scars, pores, stretch marks and fine lines.',
@@ -282,7 +283,7 @@ T.push({
 T.push({
   slug: 'prp-rejuvenation', cat: 'skin',
   name: 'PRP Rejuvenation', short: 'PRP rejuvenation',
-  title: 'PRP (Platelet-Rich Plasma) Skin & Hair Treatment, Thornhill',
+  title: 'PRP (Platelet-Rich Plasma) in Thornhill & Vaughan',
   desc: 'PRP rejuvenation in Thornhill uses your own platelets for skin tone, dark circles, the neck and hair loss. Often paired with microneedling. Call 416-728-5697.',
   img: 'prp-facial-rejuvenation-profile', imgAlt: 'A woman in profile with her eyes closed and chin lifted, showing smooth, glowing skin on her face and neck',
   card: 'Your own platelets for tone, texture, dark circles, the neck and hair.',
@@ -309,7 +310,7 @@ T.push({
 T.push({
   slug: 'mesotherapy', cat: 'skin',
   name: 'Mesotherapy', short: 'Mesotherapy',
-  title: 'Mesotherapy Facial Rejuvenation in Thornhill',
+  title: 'Mesotherapy Facial Rejuvenation in Thornhill & Vaughan',
   desc: 'Mesotherapy in Thornhill: micro-injections of hyaluronic acid, vitamins and amino acids for hydrated, glowing skin, finished with red LED. 15–30 minutes.',
   img: 'mesotherapy-hydrated-skin', imgAlt: 'A woman with fresh, hydrated skin touching her face as water splashes around her',
   card: 'A vitamin and hyaluronic acid cocktail for dull, tired skin, finished with red LED.',
@@ -329,7 +330,7 @@ T.push({
 T.push({
   slug: 'organic-peel', cat: 'skin',
   name: 'Organic Herbal Peel', short: 'Organic herbal peel',
-  title: 'Organic Herbal Green Peel in Thornhill | Beauty Medical Clinic',
+  title: 'Organic Herbal Green Peel in Thornhill & Vaughan',
   desc: 'Organic herbal (green) peel in Thornhill for sun damage, acne, scars and uneven tone. Visible change after one session. Pre- and post-care inside.',
   img: 'organic-herbal-peel', imgAlt: 'A woman holding fresh green herbs against her cheek',
   card: 'A plant-based peel for sun damage, acne, scars and uneven tone.',
@@ -363,7 +364,7 @@ T.push({
 T.push({
   slug: 'salt-and-silk-facial', cat: 'skin',
   name: 'Salt & Silk Facial', short: 'Salt & Silk facial',
-  title: 'Salt & Silk Facial with RF Contouring | Thornhill',
+  title: 'Salt & Silk Facial with RF Contouring, Thornhill & Vaughan',
   desc: 'The Salt & Silk Facial in Thornhill: saline cleanse, silk hydration, radio frequency and jawline contouring, plus a complimentary collagen mask and massage.',
   img: 'facial-mask-treatment', imgAlt: 'A gloved practitioner smoothing a creamy facial mask over a relaxed client’s cheek and chin',
   card: 'A luxurious saline-and-silk ritual with radio frequency and jawline contouring.',
@@ -381,11 +382,13 @@ T.push({
 T.push({
   slug: 'radiofrequency-skin-tightening', cat: 'skin',
   name: 'Forma RF Skin Tightening', short: 'Forma skin tightening',
-  title: 'Forma Radio Frequency Skin Tightening in Thornhill',
-  desc: 'Forma by InMode in Thornhill: radio frequency skin tightening for the jawline, smile lines, brows and neck. Essentially painless, no downtime. Book today.',
+  h1: 'Forma RF Facial: <span class="t-loc">non-surgical skin tightening in Thornhill &amp; Vaughan</span>',
+  aka: ['Forma RF facial', 'Forma by InMode', 'Non-surgical skin tightening', 'Radio frequency skin tightening'],
+  title: 'Forma RF Facial | Non-Surgical Skin Tightening in Vaughan',
+  desc: 'Forma RF facial treatment in Thornhill and Vaughan: non-surgical skin tightening by InMode for the jawline, jowls, brows and neck. No downtime. Book today.',
   img: 'handheld-device-facial', imgAlt: 'A gloved practitioner gliding a handheld treatment device across a relaxed client’s forehead',
   card: 'Radio frequency that tightens the jawline, brow and neck with no downtime.',
-  lede: 'Forma by InMode uses radio frequency (RF) heat deep in the skin to trigger the body’s own collagen production, counteracting time and gravity. It tightens and sculpts without needles or surgery, and you can go straight back to your day.',
+  lede: 'A Forma RF facial is non-surgical skin tightening. Forma by InMode uses radio frequency (RF) heat deep in the skin to trigger the body’s own collagen production, counteracting time and gravity. It tightens and sculpts without needles or surgery, and you can go straight back to your day.',
   facts: [['Course', 'Weekly for about 6 weeks'], ['Downtime', 'None'], ['Comfort', 'Essentially painless'], ['Areas', 'Face, neck and body']],
   sections: [
     { h: 'What Forma can do', html: `<p>Instead of turning to fillers or a facelift, Forma combines radio frequency and heat to:</p>
@@ -397,7 +400,9 @@ T.push({
   faq: [
     ['Does Forma hurt?', 'It is essentially painless and needs no downtime. Mild redness fades within a few hours.'],
     ['How many Forma sessions do I need?', 'Typically weekly sessions over six weeks. Mild laxity may need fewer, spaced further apart.'],
-    ['Can Forma be combined with other treatments?', 'Yes, with most facials, injectables and fillers. Rebecca will advise on timing.']
+    ['Can Forma be combined with other treatments?', 'Yes, with most facials, injectables and fillers. Rebecca will advise on timing.'],
+    ['What is a Forma RF facial?', 'A Forma RF facial is a non-surgical skin-tightening treatment by InMode. A handheld device warms the deeper layers of the skin with radio frequency so the body builds new collagen, firming the jawline, brows and neck without needles, surgery or downtime.'],
+    ['Where can I get Forma skin tightening near Vaughan?', 'At Beauty Medical Clinic, 7131 Bathurst St., Unit 103, Thornhill (Bathurst & Steeles), in the City of Vaughan. It is a short drive from Richmond Hill and North York. Call or text 416-728-5697 to book.']
   ],
   gallery: [
     ['forma-before-after-1', 'Before and after a course of Forma on the lower face and jawline', 'Forma · before / after'],
@@ -413,11 +418,13 @@ T.push({
 T.push({
   slug: 'sclerotherapy', cat: 'body',
   name: 'Sclerotherapy (Spider Veins)', short: 'Sclerotherapy',
-  title: 'Sclerotherapy Spider Vein Treatment in Thornhill',
-  desc: 'Sclerotherapy for spider and reticular leg veins in Thornhill by a nurse who trains doctors in it. About 60 minutes, little pain. Call 416-728-5697.',
+  h1: 'Spider Vein Treatment <span class="t-loc">(sclerotherapy) in Thornhill &amp; Vaughan</span>',
+  aka: ['Spider vein treatment', 'Spider vein removal', 'Leg vein treatment'],
+  title: 'Spider Vein Treatment in Thornhill and Vaughan | Sclerotherapy',
+  desc: 'Spider vein treatment in Thornhill and Vaughan: sclerotherapy for spider and small leg veins by an RN who teaches it to doctors. Call 416-728-5697.',
   img: 'sclerotherapy-smooth-legs', imgAlt: 'A woman’s smooth, bare legs crossed on a white background',
   card: 'Clears spider and small leg veins. Compression stockings fitted in-clinic.',
-  lede: 'Sclerotherapy clears spider veins and small (reticular) leg veins with micro-injections. A sclerosing solution is placed in the vein through a very fine needle; it irritates the lining so the vein closes, scars down and fades away. Many veins can be treated in one visit.',
+  lede: 'Spider vein treatment here means sclerotherapy, which clears spider veins and small (reticular) leg veins with micro-injections. A sclerosing solution is placed in the vein through a very fine needle; it irritates the lining so the vein closes, scars down and fades away. Many veins can be treated in one visit.',
   facts: [['Session', 'About 60 minutes'], ['Typical course', '3–5 sessions (2–3 if mild)'], ['Anesthesia', 'Usually not needed'], ['Bruising fades', '10–14 days']],
   sections: [
     { h: 'Why come to Rebecca for veins', html: `<p>Rebecca has taught sclerotherapy to doctors and registered nurses for more than ten years. Spider veins are the treatment her Google reviewers mention most. One client, after years of hiding her legs, wrote that she can’t believe she will wear dresses again.</p>` },
@@ -433,7 +440,8 @@ T.push({
     ['Does sclerotherapy hurt?', 'Each injection gives a small sting that lasts a few seconds. Most people don’t need anesthesia and find it much easier than they expected.'],
     ['Can it treat large varicose veins?', 'Sclerotherapy is for small and medium veins near the surface. Large varicose veins need much more solution and a stronger formula, and are better assessed separately.'],
     ['Can veins on the face or hands be treated?', 'No. Sclerotherapy should never be used on the hands, and it is not the right treatment for veins on the face.'],
-    ['What do I need to do after?', 'Wear compression stockings (24 hours the first day, then for a week), walk as normal, and skip intense sport for 5–7 days.']
+    ['What do I need to do after?', 'Wear compression stockings (24 hours the first day, then for a week), walk as normal, and skip intense sport for 5–7 days.'],
+    ['Where can I get spider vein treatment in Vaughan?', 'At Beauty Medical Clinic, 7131 Bathurst St., Unit 103, Thornhill (Bathurst & Steeles), in the City of Vaughan. It is a short drive from Richmond Hill and North York. Call or text 416-728-5697 to book.']
   ],
   gallery: [['compression-stockings', 'A range of compression stockings: knee socks, thigh-highs and pantyhose', 'Compression stockings, fitted in-clinic']],
   quotes: [['I had my spider veins removed by Victoria. She did an amazing job! She is very skilled and attentive.', 'Stella I.'], ['I can’t wait to wear shorts in the summer now that Victoria has cleared all my spider veins.', 'Kathryn K.']],
@@ -443,7 +451,7 @@ T.push({
 T.push({
   slug: 'body-fx', cat: 'body',
   name: 'Body FX Body Contouring', short: 'Body FX',
-  title: 'BodyFX Non-Surgical Body Contouring in Thornhill',
+  title: 'BodyFX Non-Surgical Body Contouring, Thornhill & Vaughan',
   desc: 'InMode BodyFX in Thornhill: radio frequency and vacuum to reduce fat and cellulite and tighten skin. No downtime, ~30 minutes per area. Ask for a quote.',
   img: 'body-contouring-silhouette', imgAlt: 'The smooth curve of a woman’s waist and hip with a butterfly resting on it',
   card: 'Radio frequency and vacuum for stubborn fat and cellulite. Zero downtime.',
@@ -474,7 +482,7 @@ T.push({
 T.push({
   slug: 'endospheres-therapy', cat: 'body',
   name: 'Endospheres Therapy', short: 'Endospheres',
-  title: 'Endospheres Therapy for Body & Face in Thornhill',
+  title: 'Endospheres Therapy in Thornhill & Vaughan',
   desc: 'Endospheres therapy in Thornhill: Italian compressive microvibration for cellulite, fluid retention, muscle tension and facial contouring. Relaxing and non-invasive.',
   img: 'endospheres-body-legs', imgAlt: 'A therapist gliding the Endospheres roller along a client’s thigh',
   card: 'Italian microvibration for cellulite, puffiness, tension and a lifted face.',
@@ -506,7 +514,7 @@ T.push({
 T.push({
   slug: 'hair-loss-and-thinning-treatment', cat: 'hair',
   name: 'Hair Loss & Thinning Treatment', short: 'Hair loss treatment',
-  title: 'PRP & Mesotherapy Hair Loss Treatment in Thornhill',
+  title: 'Hair Loss Treatment in Thornhill & Vaughan | Beauty Medical',
   desc: 'Hair thinning and hair loss treatment in Thornhill: the clinic’s own PRP plus mesotherapy protocol with multivitamins and minoxidil. Results in 2–3 months.',
   img: 'hair-loss-treatment-healthy-hair', imgAlt: 'A woman with long, thick, glossy hair',
   card: 'The clinic’s own PRP + mesotherapy protocol. First results in 2–3 months.',
