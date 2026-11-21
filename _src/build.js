@@ -7,7 +7,7 @@ const ROOT = path.join(__dirname, '..');
 // Live on beautymedical.ca (Cloudflare Worker). The GitHub Pages copy points its canonical here.
 const SITE = 'https://beautymedical.ca/';
 const NOINDEX = false;
-const VERSION = '6';
+const VERSION = '7';
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const img = (name, alt, w, h, o = {}) => `<img src="${o.p || ''}assets/img/${name}.webp" alt="${esc(alt)}" width="${w}" height="${h}"${o.eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${o.cls ? ` class="${o.cls}"` : ''}${o.sizes ? ` sizes="${o.sizes}"` : ''}${o.srcset ? ` srcset="${o.srcset}"` : ''}>`;
@@ -234,7 +234,7 @@ function home() {
       </ul>
     </div>
     <div class="hero-media">
-      ${pic('serum-dropper-skin', 'A woman with her eyes closed letting a drop of golden serum fall onto her cheek', { eager: true, sizes: '(max-width: 900px) 100vw, 50vw' })}
+      ${pic('two-women-natural-results', 'Two smiling women of different ages resting their heads together, with natural, refreshed skin', { eager: true, sizes: '(max-width: 900px) 100vw, 50vw' })}
       <a class="hero-card" href="about/">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, RN, Certified Aesthetic Injector', { sizes: '64px' })}<span><b>Rebecca Victoria Adam, RN</b><em class="hc-t">Certified Aesthetic Injector</em>Every treatment, performed by Rebecca herself</span></a>
     </div>
   </div>
