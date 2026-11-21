@@ -683,3 +683,18 @@ ul:not(.ticks).cols li{padding:3px 0}
 
 /* Areas served line (v6) */
 .visit-area{color:var(--ink-2);font-weight:300;margin:-6px 0 22px;max-width:44ch}
+
+/* Home hero v8: client's full banner, copy and Rebecca card underneath */
+.hero-banner{margin:0;background:#f3e3d0}
+.hero-banner img{display:block;width:100%;height:auto;max-height:calc(100vh - 84px);object-fit:cover;object-position:50% 40%;animation:heroIn 1.6s var(--ease) both}
+.hero-v2 .hero-grid{min-height:0;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:clamp(32px,5vw,80px);align-items:center}
+.hero-v2 .hero-copy{padding:clamp(44px,5vw,80px) 0}
+.hero-v2 .hero-card{position:static;max-width:none;box-shadow:none;background:var(--paper);border-top:1px solid var(--gold);padding:22px}
+.hero-v2 .hero-card img{width:84px;height:84px}
+@media (max-width:900px){
+  .hero-v2 .hero-grid{grid-template-columns:1fr;gap:0}
+  .hero-v2 .hero-copy{padding:36px 0 28px}
+  .hero-v2 .hero-side{padding-bottom:48px}
+  .hero-v2 .hero-card{padding:14px}
+  .hero-v2 .hero-card img{width:60px;height:60px}
+}

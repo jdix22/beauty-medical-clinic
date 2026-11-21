@@ -7,7 +7,7 @@ const ROOT = path.join(__dirname, '..');
 // Live on beautymedical.ca (Cloudflare Worker). The GitHub Pages copy points its canonical here.
 const SITE = 'https://beautymedical.ca/';
 const NOINDEX = false;
-const VERSION = '7';
+const VERSION = '8';
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const img = (name, alt, w, h, o = {}) => `<img src="${o.p || ''}assets/img/${name}.webp" alt="${esc(alt)}" width="${w}" height="${h}"${o.eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${o.cls ? ` class="${o.cls}"` : ''}${o.sizes ? ` sizes="${o.sizes}"` : ''}${o.srcset ? ` srcset="${o.srcset}"` : ''}>`;
@@ -220,8 +220,9 @@ function home() {
   ];
 
   const body = `
-<section class="hero">
-  <div class="hero-grid">
+<section class="hero hero-v2">
+  <figure class="hero-banner">${pic('beauty-medical-clinic-forma-banner', 'Beauty Medical Clinic, non-surgical aesthetic treatments: two smiling women beside a Forma RF device, serum vials and an orchid', { eager: true, sizes: '100vw' })}</figure>
+  <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="mono eyebrow">Thornhill · Bathurst &amp; Steeles</p>
       <h1><span class="h1-brand">Beauty Medical Clinic</span> <span class="h1-main">Non-surgical anti-aging, <em>where art meets science.</em></span></h1>
@@ -233,8 +234,7 @@ function home() {
         <li><b class="stars" aria-label="Rated Excellent on Google">${icon.star.repeat(5)}</b><span>Rated “Excellent” · ${F.googleCount} Google reviews</span></li>
       </ul>
     </div>
-    <div class="hero-media">
-      ${pic('two-women-natural-results', 'Two smiling women of different ages resting their heads together, with natural, refreshed skin', { eager: true, sizes: '(max-width: 900px) 100vw, 50vw' })}
+    <div class="hero-side">
       <a class="hero-card" href="about/">${pic('rebecca-victoria-adam-rn', 'Rebecca Victoria Adam, RN, Certified Aesthetic Injector', { sizes: '64px' })}<span><b>Rebecca Victoria Adam, RN</b><em class="hc-t">Certified Aesthetic Injector</em>Every treatment, performed by Rebecca herself</span></a>
     </div>
   </div>
